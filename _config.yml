@@ -2,3 +2,7 @@ name: Swarm Intelligence
 description: Adam Walz Blog and Portfolio
 markdown: redcarpet
 pygments: true
+
+assets:
+  js_compressor:  uglifier
+  css_compressor: sass
