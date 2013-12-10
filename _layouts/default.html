@@ -1,44 +1,15 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ site.name }} | {{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  {% include head.html %}
+  <body>
 
-        <!-- syntax highlighting CSS -->
-        {% stylesheet syntax %}
+    <div class="site">
+      {% include header.html %}
+      {{ content }}
+      {% include footer.html %}
+    </div>
 
-        <!-- Custom CSS -->
-        {% stylesheet main %}
-
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Adam Walz<br />
-                Augmented Intelligence Engineer, Evernote<br />
-                adam@adamwalz.net
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/adamwalz">github.com/adamwalz</a><br />
-                <a href="https://twitter.com/adamwalz">twitter.com/adamwalz</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
-
-    </body>
+  </body>
 </html>
