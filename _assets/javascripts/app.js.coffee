@@ -1,4 +1,5 @@
 #= require vendor/jquery
+#= require_directory ./vendor/bootstrap
 
 # Some general UI pack related JS
 $(document).ready ->

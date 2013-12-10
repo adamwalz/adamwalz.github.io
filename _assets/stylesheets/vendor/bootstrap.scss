@@ -1,0 +1,26 @@
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// CSS Reset
+@import "bootstrap/reset";
+
+// Grid system and page structure
+@import "bootstrap/scaffolding";
+@import "bootstrap/layouts";
+
+// Base CSS
+@import "bootstrap/type";
+@import "bootstrap/forms";
+
+// Components: common
+@import "bootstrap/dropdowns";
+
+// Components: Nav
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+
+// Components: Misc
+@import "bootstrap/labels-badges";
+
+// Utility classes
+@import "bootstrap/utilities";
