@@ -6,3 +6,5 @@ gem "jekyll-assets", "~> 0.7.4"
 gem "uglifier", "~> 2.3.2"
 gem "coffee-script", "~> 2.2.0"
 gem "sass", "~> 3.2.12"
+
+gem "compass", "~> 0.12.2"
