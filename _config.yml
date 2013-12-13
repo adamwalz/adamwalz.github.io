@@ -91,7 +91,8 @@ disqus_short_name: adamwalz
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-40439919-1
+google_analytics_domain_name: adamwalz.net
 
 # Facebook Like
 facebook_like: true
