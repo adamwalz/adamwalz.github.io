@@ -49,6 +49,11 @@ navigation:
 assets:
   js_compressor:  uglifier
   css_compressor: sass
+  sources:
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/fonts
 
 # ----------------------- #
 #        3rd Party Settings          #
