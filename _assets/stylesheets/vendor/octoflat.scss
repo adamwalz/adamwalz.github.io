@@ -13,8 +13,8 @@
 }
 
 @import "bootstrap/variables";
-#main{
-  padding-top: $navbar-height; // begin main container after navbar for headroom.js
+#swarmintelligence-jumbotron{
+  margin-top: $navbar-height; // begin jumbotron after navbar for headroom.js
 }
 
 $link-color: lighten(#165b94, 3) !default;
@@ -24,3 +24,4 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace 
 @import "octoflat/solarized";
 @import "octoflat/syntax";
 @import "octoflat/quotes";
+@import "octoflat/jumbotron";

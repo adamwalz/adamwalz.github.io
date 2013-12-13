@@ -1,0 +1,44 @@
+$background_image: image-url("slc_skyline_blur.png");
+
+.jumbotron {
+  font-weight: normal;
+  background-color: $off_white;
+  padding-left: 0px;
+  text-align: left;
+}
+
+.container .jumbotron {
+  padding-left: 0px;
+}
+
+#swarmintelligence-jumbotron {
+  background: $background_image;
+  font-size: 60px;
+  margin-bottom: 20px;
+  overflow-x: hidden;
+  line-height: 80px;
+}
+
+#swarmintelligence-jumbotron .container {
+  color: $off_white;
+  text-align: center;
+}
+
+#swarmintelligence-jumbotron .tagline {
+  color: $off_white;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .jumbotron {
+    font-size: 40px;
+  }
+
+  #swarmintelligence-jumbotron .container {
+    font-size: 90%;
+  }
+
+  #swarmintelligence-jumbotron .tagline {
+    font-size: 22px;
+  }
+}
