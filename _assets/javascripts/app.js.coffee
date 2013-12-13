@@ -1,5 +1,6 @@
 #= require vendor/jquery
-#= require_directory ./vendor/bootstrap
+#= require vendor/bootstrap
+#= require vendor/jquery/jQuery.headroom
 
 # Some general UI pack related JS
 $(document).ready ->
@@ -11,6 +12,16 @@ $(document).ready ->
   # Disable link click not scroll top
   $("a[href='#']").click ->
     false
+
+  $("#navbar").headroom({
+    offset : 0,
+    tolerance : 10,
+    classes : {
+      initial : "headroom",
+      pinned : "headroom--pinned",
+      unpinned : "headroom--unpinned"
+    }
+    })
 
 updateContainer = ->
   $containerWidth = $(window).width()
