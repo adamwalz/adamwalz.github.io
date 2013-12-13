@@ -1,14 +1,23 @@
-<div class="footer">
-  <div class="contact">
-    <p>
-      Adam Walz<br />
-      Augmented Intelligence Engineer, Evernote<br />
-      adam@adamwalz.net
-    </p>
-  </div>
+{% unless page.omit_footer %}
+  <div class="row">
+    <div class="col-sm-12">
+      <footer class="footer-page" role="contentinfo">
+        <div class="footer">
 
-  <div class="contact">
-    {% include social.html %}
-  </div>
+          <div class="contact">
+            <p>
+              Adam Walz<br />
+              Augmented Intelligence Engineer, Evernote<br />
+              adam@adamwalz.net
+            </p>
+          </div>
 
-</div>
+          <div class="contact">
+            {% include social.html %}
+          </div>
+
+        </div> <!-- end .footer -->
+      </footer>
+    </div> <!-- end .col-sm-12 -->
+  </div> <!-- end .row -->
+{% endunless %}

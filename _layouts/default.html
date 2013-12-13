@@ -12,17 +12,9 @@
       <div id="content">
         {{ content | expand_urls: root_url }}
       </div>
-      {% unless page.omit_footer %}
-      <div class="row">
-        <div class="col-sm-12">
-          <footer class="footer-page" role="contentinfo">
-            {% include footer.html %}
-          </footer>
-        </div>
-      </div>
-      {% endunless %}
-    </div>
 
+    </div> <!-- end .container -->
+    {% include footer.html %}
     {% javascript app %}
   </body>
 </html>
