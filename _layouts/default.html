@@ -13,9 +13,9 @@
       <div id="content">
         {{ content | expand_urls: root_url }}
       </div>
+      {% include footer.html %}
     </div> <!-- end .container -->
 
-    {% include footer.html %}
     {% javascript app %}
   </body>
 </html>
