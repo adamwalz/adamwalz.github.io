@@ -7,8 +7,10 @@ $background_image: image-url("slc_skyline_blur.png");
   text-align: left;
 }
 
-.container .jumbotron {
-  padding-left: 0px;
+.container {
+  .jumbotron {
+    padding-left: 0px;
+  }
 }
 
 #swarmintelligence-jumbotron {
@@ -17,16 +19,14 @@ $background_image: image-url("slc_skyline_blur.png");
   margin-bottom: 20px;
   overflow-x: hidden;
   line-height: 80px;
-}
-
-#swarmintelligence-jumbotron .container {
-  color: $off_white;
-  text-align: center;
-}
-
-#swarmintelligence-jumbotron .tagline {
-  color: $off_white;
-  text-align: center;
+  .container {
+    color: $off_white;
+    text-align: center;
+  }
+  .tagline {
+    color: $off_white;
+    text-align: center;
+  }
 }
 
 @media (max-width: 767px) {
@@ -34,11 +34,12 @@ $background_image: image-url("slc_skyline_blur.png");
     font-size: 40px;
   }
 
-  #swarmintelligence-jumbotron .container {
-    font-size: 90%;
-  }
-
-  #swarmintelligence-jumbotron .tagline {
-    font-size: 22px;
+  #swarmintelligence-jumbotron {
+    .container {
+      font-size: 90%;
+    }
+    .tagline {
+      font-size: 22px;
+    }
   }
 }
