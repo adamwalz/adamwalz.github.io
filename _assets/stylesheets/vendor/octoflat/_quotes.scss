@@ -55,17 +55,18 @@ article blockquote {
     padding-left: 1.5em;
     border-left-width: 4px;
   }
-  p:before {
-    font-size: 30px;
-    padding-right: 0.15em;
-    color: #bdc1c5;
-    content: "“";
-
-  }
-  p:after {
-    font-size: 30px;
-    padding-left: 0.15em;
-    color: #bdc1c5;
-    content: "”";
+  p {
+    &:before {
+      font-size: 30px;
+      padding-right: 0.15em;
+      color: #bdc1c5;
+      content: "“";
+    }
+    &:after {
+      font-size: 30px;
+      padding-left: 0.15em;
+      color: #bdc1c5;
+      content: "”";
+    }
   }
 }
