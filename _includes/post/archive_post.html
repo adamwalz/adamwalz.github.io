@@ -1,0 +1,23 @@
+{% capture category %}{{ post.categories | size }}{% endcapture %}
+<div class="row">
+  <div class="col-sm-2">
+    <h1 class="date-time">
+      <time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span><span class='year'></span>"}}</time>
+    </h1>
+  </div> <!-- end .col-sm-2 -->
+
+  <div class="col-sm-10">
+    <h1><a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></h1>
+  </div>
+</div> <!-- end .row -->
+
+{% if category != '0' %}
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <footer class="archive">
+        <span class="categories">posted in {{ post.categories | category_links }}</span>
+      </footer>
+    </div>
+  </div> <!-- end .row -->
+{% endif %}
