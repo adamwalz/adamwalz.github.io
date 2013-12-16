@@ -78,6 +78,9 @@ google_plus_one_size: medium
 googleplus_user: +AdamWalz
 googleplus_hidden: false
 
+# LinkedIn Profile
+linkedin_user: adamwalz
+
 # Pinboard
 pinboard_user:
 pinboard_count: 3
