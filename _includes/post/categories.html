@@ -1,0 +1,11 @@
+{% capture category %}{% if post %}{{ post.categories | category_links | size }}{% else %}{{ page.categories | category_links | size }}{% endif %}{% endcapture %}
+
+{% if category != '0' and post %}
+  {% for category in post.categories %}
+    <a href="{{ root_url }}/{{ site.category_dir }}/{{ category | split: " " | join: "-" | downcase }}/"><span class="badge">{{ category }}</span></a>
+  {% endfor %}
+{% else %}
+  {% for category in page.categories %}
+    <a href="{{ root_url }}/{{ site.category_dir }}/{{ category | split: " " | join: "-" | downcase }}/"><span class="badge">{{ category }}</span></a>
+  {% endfor %}
+{% endif %}
