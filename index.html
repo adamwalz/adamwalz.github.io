@@ -2,12 +2,25 @@
 layout: default
 title: Home
 ---
+<div id="blog-index">
+  {% assign index = true %}
+  {% for post in paginator.posts %}
+    {% assign content = post.content %}
+      <article>
+        {% include article.html %}
+      </article>
+    {% unless post == paginator.posts.last %}
+      <hr>
+    {% endunless %}
+  {% endfor %}
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+  <div class="pagination">
+    {% if paginator.next_page %}
+      <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
+    {% endif %}
+
+    {% if paginator.previous_page %}
+      <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
+    {% endif %}
+  </div> <!-- end .pagination -->
+</div> <!-- end #blog-index -->
