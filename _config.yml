@@ -14,7 +14,7 @@ email: adam@adamwalz.net
 # ----------------------- #
 #           Jekyll & Plugins           #
 # ----------------------- #
-markdown: redcarpet
+markdown: kramdown
 pygments: true
 
 paginate: 10          # Posts per page on the blog index
