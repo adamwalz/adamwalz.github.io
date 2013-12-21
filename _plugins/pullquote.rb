@@ -23,6 +23,7 @@
 # Note: this plugin now creates pullquotes with the class of pullquote-right by default
 
 module Jekyll
+  require "rubypants"
 
   class PullquoteTag < Liquid::Block
     def initialize(tag_name, markup, tokens)
