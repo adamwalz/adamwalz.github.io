@@ -1,0 +1,18 @@
+{
+  "folders":
+  [
+    {
+      "path": ".",
+      "follow_symlinks": true,
+      "folder_exclude_patterns": [".pygments-cache", "*.sass-cache"],
+      "file_exclude_patterns": ["Gemfile.lock"]
+    }
+  ],
+  "build_systems":
+    [
+      {
+        "name": "Jekyll",
+        "shell_cmd": "jekyll serve --watch"
+        }
+    ]
+}
