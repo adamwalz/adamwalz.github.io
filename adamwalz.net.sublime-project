@@ -12,7 +12,7 @@
     [
       {
         "name": "Jekyll",
-        "shell_cmd": "jekyll serve --watch"
+        "shell_cmd": "jekyll build"
         }
     ]
 }
