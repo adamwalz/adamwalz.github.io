@@ -40,8 +40,8 @@ default_asides: []
 navigation:
 - text: Home
   url: /index.html
-- text: About
-  url: /about.html
+- text: Archives
+  url: /archives
 
 # ----------------------- #
 #       Jekyll Asset Pipeline        #
