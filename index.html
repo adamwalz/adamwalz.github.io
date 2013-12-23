@@ -5,10 +5,9 @@ title: Home
 <div id="blog-index">
   {% assign index = true %}
   {% for post in paginator.posts %}
-    {% assign content = post.content %}
-      <article>
-        {% include article.html %}
-      </article>
+    <article>
+      {% include article.html %}
+    </article>
     {% unless post == paginator.posts.last %}
       <hr>
     {% endunless %}

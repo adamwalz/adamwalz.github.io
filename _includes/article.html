@@ -18,9 +18,10 @@
 
     <div class="col-sm-9 col-lg-10">
       <h1 class="link"><a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a></h1>
-      {{ content | excerpt }}
-      {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
-      {% if excerpted == 'true' %} <a href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a> {% endif %}
+      {{ post.excerpt }}
+      {% if post.excerpt.size != post.content.size %}
+        <a href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
+      {% endif %}
     </div> <!-- end .col-sm-9 .col-lg-10 -->
   </div> <!-- end .row -->
 {% else %}
