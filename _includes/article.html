@@ -17,7 +17,11 @@
     </div> <!-- end .col-sm-3 .col-lg-2 -->
 
     <div class="col-sm-9 col-lg-10">
-      <h1 class="link"><a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a></h1>
+      <h1 class="link">
+        <a href="{{ root_url }}{{ post.url }}">
+          {% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}
+        </a>
+      </h1>
       {{ post.excerpt }}
       {% if post.excerpt.size != post.content.size %}
         <a href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
