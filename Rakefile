@@ -28,10 +28,12 @@ server_port     = 4000      # port for preview server eg. localhost:4000
 #######################
 
 desc 'Generate jekyll site'
-task :generate do
+task :build do
   puts '## Generating Site with Jekyll'
   system 'jekyll build'
 end
+
+task :generate => :build
 
 desc 'Watch the site and regenerate when it changes'
 task :watch do
