@@ -150,6 +150,7 @@ task :rsync do
   end
   puts '## Deploying website via Rsync'
   ok_failed system("rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{rsync_args} #{"--delete" unless rsync_delete == false} #{site_dir}/ #{ssh_user}@#{ssh_host}:#{document_root}")
+  puts '## Fixing server-side permissions'
   ok_failed system("ssh #{ssh_user}@#{ssh_host} -p #{ssh_port} chgrp -R http #{document_root}")
 end
 
