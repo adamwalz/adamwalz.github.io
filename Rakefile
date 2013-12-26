@@ -6,9 +6,8 @@ ssh_user       = 'adamwalz_net'
 ssh_host       = 'ignis'
 ssh_port       = 22
 document_root  = "/home/#{ssh_user}/public_html/"
-rsync_delete   = false
-rsync_args     = '--chmod=Du=rwx,Dg=rx,Do=,Fu=rw,Fg=r,Fo= --perms'
-#rsync_args     = '--chmod=Du=rwx,Dg=rx,Fu=rw,Fg=r --perms'  # Any extra arguments to pass to rsync
+rsync_delete   = true
+rsync_args     = '--chmod=Du=rwx,Dg=rx,Do=,Fu=rw,Fg=r,Fo= --perms' # Any extra arguments to pass to rsync
 deploy_default = 'rsync'
 
 # This will be configured for you when you run config_deploy
