@@ -3,7 +3,7 @@ name: Swarm Intelligence
 description: Adam Walz Blog and Portfolio
 author: Adam Walz
 
-permalink: pretty
+permalink: /blog/:year/:month/:day/:title/
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
