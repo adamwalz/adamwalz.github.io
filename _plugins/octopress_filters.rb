@@ -5,6 +5,22 @@ module OctopressLiquidFilters
   def titlecase(input)
     input.titlecase
   end
+
+  # Removes trailing forward slash from a string for easily appending url segments
+  def strip_slash(input)
+    if input =~ /(.+)\/$|^\/$/
+      input = $1
+    end
+    input
+  end
+
+  # Returns a url without the protocol (http://)
+  def shorthand_url(input)
+    input.gsub /(https?:\/\/)(\S+)/ do
+      $2
+    end
+  end
+
 end
 
 Liquid::Template.register_filter OctopressLiquidFilters
