@@ -7,7 +7,7 @@ ssh_host       = 'ignis'
 ssh_port       = 22
 document_root  = "/home/#{ssh_user}/public_html/"
 rsync_delete   = true
-rsync_args     = '--chmod=Du=rwx,Dg=rx,Do=,Fu=rw,Fg=r,Fo= --perms' # Any extra arguments to pass to rsync
+rsync_args     = '--chmod=Du=rwx,Dg=rx,Do=,Fu=rw,Fg=r,Fo= --perms --exclude="maintenance.html"'
 deploy_default = 'rsync'
 
 # This will be configured for you when you run config_deploy
@@ -151,6 +151,19 @@ task :rsync do
   ok_failed system("rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{rsync_args} #{"--delete" unless rsync_delete == false} #{site_dir}/ #{ssh_user}@#{ssh_host}:#{document_root}")
   puts '## Fixing server-side permissions'
   ok_failed system("ssh #{ssh_user}@#{ssh_host} -p #{ssh_port} chgrp -R http #{document_root}")
+end
+
+desc 'Toggle maintenance mode for website'
+task :maintenance do
+  puts '## Toggling site maintenance mode'
+  # Remove --exclude="maintenance.html" from rsync_args when changes are made
+  puts 'Remember, changes to the maintenance page must be manually uploaded'
+  maint_file = "#{document_root}maintenance.html"
+
+  turn_on = "ln -s #{document_root}error/maintenance.html #{maint_file} && echo \"Maintenance: On\""
+  turn_off = "unlink #{maint_file} && echo \"Maintenance: Off\""
+  maint_cmd = "if [ -h #{maint_file} ]; then #{turn_off}; else #{turn_on}; fi"
+  ok_failed system("ssh #{ssh_user}@#{ssh_host} -p #{ssh_port} '#{maint_cmd}'")
 end
 
 def ok_failed(condition)
