@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="row">
+  <div class="col-md-8">
+    <h1>I've looked practically everywhere.</h1>
+    <p><strong>404 Page not found.</strong> Double check the URL or head back to <a href="{{ site.root }}/">the homepage</a>. If you continue to get this page, email me at <a href="mailto:{{ site.email }}" title="Email">{{ site.email }}</a>.</p>
+    <hr>
+    <p>The following is a list of the latest posts from the blog. Maybe it will help you find what you're looking for.</p>
+
+    <ul>
+      {% for post in site.posts limit:10 %}
+        <li><a href="{{root_url}}{{post.url}}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</div>
