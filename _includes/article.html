@@ -30,8 +30,8 @@
   </div> <!-- end .row -->
 {% else %}
   <header>
-    <div class="jumbotron">
-      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
+    <div class="jumbotron" role="banner">
+      <h1>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}<h1>
       <h5>{% include post/date.html %}<i class="icon-calendar-empty"></i> {{ time }}</h5>
     </div>
   </header>
