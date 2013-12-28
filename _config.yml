@@ -95,6 +95,9 @@ pinboard_count: 3
 delicious_user:
 delicious_count: 3
 
+# AddThis Sharing Profile
+addthis_profile_id: ra-52bf43f876c34f5f
+
 # Disqus Comments
 disqus_short_name: SwarmIntelligence
 disqus_show_comment_count: true
