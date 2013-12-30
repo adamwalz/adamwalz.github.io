@@ -25,3 +25,17 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace 
 @import "octoflat/syntax";
 @import "octoflat/quotes";
 @import "octoflat/jumbotron";
+
+// Image locations in articles
+article p {
+  &.right > img {
+    float: right;
+  }
+  &.left > img {
+    float: left;
+  }
+  > img {
+    display: block;
+    margin: auto;
+  }
+}
