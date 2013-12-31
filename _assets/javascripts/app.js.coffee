@@ -4,6 +4,8 @@
 
 # Some general UI pack related JS
 $(document).ready ->
+  alert("hello")
+
   # Move some elements around when viewing from a "mobile" container
   updateContainer()
   $(window).resize ->
