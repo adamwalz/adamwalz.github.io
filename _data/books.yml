@@ -1,0 +1,234 @@
+---
+- title: From Eternity to Here
+  started: March 14, 2012
+  finished: March 18, 2012
+  image: frometernitytohere.jpg
+- title: The Hitchhiker's Guide to the Galaxy
+  started: March 19, 2012
+  finished: March 31, 2012
+  image: hitchhikersguide.jpg
+  height: 120
+- title: Zen and the Art of Motorcycle Maintenance
+  started: April 1, 2012
+  finished: April 5, 2012
+  image: zenandtheartofmotorcyclemaintenance.jpg
+  height: 118
+- title: Freakonomics
+  started: April 6, 2012
+  finished: April 11, 2012
+  image: freakonomics.jpg
+  height: 108
+- title: Superfreakonomics
+  started: April 12, 2012
+  finished: April 18, 2012
+  image: superfreakonomics.jpg
+- title: Brave New World
+  started: April 19, 2012
+  finished: April 24, 2012
+  image: bravenewworld.jpg
+  height: 118
+- title: Where Good Ideas Come From
+  started: April 25, 2012
+  finished: April 30, 2012
+  image: wheregoodideascomefrom.jpg
+  height: 111
+- title: The Defining Decade
+  started: May 1, 2012
+  finished: May 6, 2012
+  image: definingdecade.jpg
+- title: Lord of the Flies
+  started: May 7, 2012
+  finished: May 13, 2012
+  image: lordoftheflies.jpg
+  height: 116
+- title: Spark
+  started: May 14, 2012
+  finished: May 18, 2012
+  image: spark.jpg
+  height: 113
+- title: This is your Brain on Music
+  started: May 19, 2012
+  finished: May 25, 2012
+  image: thisisyourbrainonmusic.jpg
+- title: The Design of Everyday Things
+  started: May 26, 2012
+  finished: June 8, 2012
+  image: designofeverydaythings.jpg
+  height: 111
+- title: The Information
+  started: June 9, 2012
+  finished: June 25, 2012
+  image: information.jpg
+- title: The Grapes of Wrath
+  started: June 26, 2012
+  finished: July 1, 2012
+  image: grapesofwrath.jpg
+  height: 116
+- title: Pulse
+  started: July 2, 2012
+  finished: July 28, 2012
+  image: pulse.jpg
+- title: A Game of Thrones
+  started: July 29, 2012
+  finished: August 4, 2012
+  image: gameofthrones.jpg
+  height: 111
+- title: Frankenstein
+  started: August 5, 2012
+  finished: September 4, 2012
+  image: frankenstein.jpg
+  height: 117
+- title: A Clash of Kings
+  started: September 5, 2012
+  finished: October 13, 2012
+  image: clashofkings.jpg
+  height: 111
+- title: A Storm of Swords
+  started: October 14, 2012
+  finished: November 9, 2012
+  image: stormofswords.jpg
+  height: 117
+- title: A Feast for Crows
+  started: November 10, 2012
+  finished: December 11, 2012
+  image: feastforcrows.jpg
+  height: 118
+- title: A Dance with Dragons
+  started: December 12, 2012
+  finished: January 4, 2013
+  image: dancewithdragons.jpg
+- title: Thinking Fast and Slow
+  started: January 5, 2013
+  finished: January 17, 2013
+  image: thinkingfastandslow.jpg
+  height: 108
+- title: The Jungle
+  started: January 18, 2013
+  finished: February 26, 2013
+  image: jungle.jpg
+  height: 112
+- title: The Count of Monte Cristo
+  started: February 27, 2013
+  finished: March 5, 2013
+  width: 79
+  height: 105
+  image: countofmontecristo.jpg
+- title: The Lean Startup
+  started: March 6, 2013
+  finished: March 11, 2013
+  image: leanstartup.jpg
+- title: $100 Startup
+  started: March 12, 2013
+  finished: March 28, 2013
+  image: 100startup.png
+  height: 105
+- title: Catch 22
+  started: March 29, 2013
+  finished: April 4, 2013
+  image: catch22.jpg
+- title: Makers
+  started: April 5, 2013
+  finished: April 16, 2013
+  image: makers.png
+  height: 112
+- title: The Signal in the Noise
+  started: April 17, 2013
+  finished: May 1, 2013
+  image: signalinthenoise.jpg
+- title: The Great Gatsby
+  started: May 2, 2013
+  finished: May 11, 2013
+  image: gatsby.gif
+  height: 109
+- title: Ender's Game
+  started: May 12, 2013
+  finished: May 18, 2013
+  image: endersgame.jpg
+  height: 107
+- title: Life of PI
+  started: May 19, 2013
+  finished: May 24, 2013
+  image: lifeofpi.jpg
+- title: Speaker for the Dead
+  started: June 9, 2013
+  finished: June 14, 2013
+  image: speakerfordead.jpg
+- title: Under the Banner of Heaven
+  started: June 15, 2013
+  finished: June 22, 2013
+  image: underbannerheaven.jpg
+- title: Emotional Intelligence
+  started: June 25, 2013
+  finished: June 25, 2013
+  image: emotionalintelligence.jpg
+- title: Emotional Intelligence 2.0
+  started: June 26, 2013
+  finished: June 27, 2013
+  image: emotionalintelligence2.jpg
+- title: Gandhi, An Autobiography
+  started: June 28, 2013
+  finished: July 10, 2013
+  image: gandhiautobiography.jpg
+- title: A Separate Peace
+  started: July 11, 2013
+  finished: July 15, 2013
+  image: separatepeace.jpg
+# - title: The Inferno, Dan Brown
+#   started: July 16, 2013
+#   finished: July 20, 2013
+#   image: inferno.jpg
+# - title: 1984
+#   started: July 22, 2013
+#   finished: July 27, 2013
+# - title: Once and Future King
+#   started: July 28, 2013
+#   finished: August 16, 2013
+# - title: Steve Jobs
+#   started: August 18, 2013
+#   finished: August 30, 2013
+# - title: The Fellowship of the Ring
+#   started: September 10, 2013
+#   finished: September 18, 2013
+# - title: The Two Towers
+#   started: September 18, 2013
+#   finished: September 24, 2013
+# - title: The Return of the King
+#   started: September 24, 2013
+#   finished: September 25, 2013
+# - title: Huckleberry Finn
+#   started: September 26, 2013
+#   finished: September 28, 2013
+# - title: The Tipping Point
+#   started: September 28, 2013
+#   finished: September 28, 2013
+# - title: The Alchemist
+#   started: October 3, 2013
+#   finished: October 6, 2013
+# - title: Without Their Permission
+#   started: October 7, 2013
+#   finished: October 9, 2013
+# - title: Promote Yourself
+#   started: October 9, 2013
+#   finished: October 15, 2013
+# - title: Dracula
+#   started: October 15, 2013
+#   finished: November 2, 2013
+# - title: The Magicians Nephew
+#   started: November 4, 2013
+#   finished: November 5, 2013
+# - title: The Lion, the Witch, and the Wardrobe
+#   started: November 6, 2013
+#   finished: November 7, 2013
+# - title: The Horse and His Boy
+#   started: November 8, 2013
+#   finished: November 9, 2013
+# - title: Prince Caspian
+#   started: November 10, 2013
+#   finished: November 11, 2013
+# - title: The Voyage of the Dawn Treader
+#   started: November 12, 2013
+#   finished: November 15, 2013
+# - title: The Silver Chair
+#   started: December 27, 2013
+#   finished: December 30, 2013
+# - title: The Last Battle

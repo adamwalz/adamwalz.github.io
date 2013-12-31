@@ -1,0 +1,73 @@
+---
+layout: page
+title: Books
+---
+<div id="bookshelf_slider">
+  <div class="panel_title">
+    <div class="selected_title_box">
+      <div class="selected_title">Selected Title</div>
+    </div>
+    <div class="menu_top">
+      <ul>
+        <li class="show_hide_titles">
+          <a href="#">Titles</a>
+        </li>
+      </ul>
+    </div> <!-- end .menu_top -->
+  </div> <!-- end .panel_title -->
+
+  <div class="panel_slider">
+    <div class="panel_items">
+      <div class="slide_animate">
+        <div class="products_box hovergallery" id="products_box_1">
+
+          {% for book in site.data.books %}
+            <div class="product" data-type="book" data-popup="true"
+              data-url="{{ book.image | prepend: 'bookshelf/feature/' | asset_path }}" title="{{ book.started | date_to_string }}" popup-title="{{ book.title }}">
+                <img src="{{ book.image | prepend: 'bookshelf/thumbnail/' | asset_path }}" alt:"{{ book.title }}" width="{% if book.thumbnail_width %}{{ book.thumbnail_width }}{% else %}73{%endif%}" height="{% if book.thumbnail_height %}{{ book.thumbnail_height }}{% else %}110{%endif%}">
+            </div>
+          {% endfor %}
+
+        </div>
+      </div> <!-- end .slide_animate -->
+    </div> <!-- end .panel_items -->
+  </div> <!-- end .panel_slider -->
+
+  <div class="panel_bar">
+      <div class='buttons_container'>
+        <div id="arrow_box"><div id="arrow_menu"></div>
+      </div>
+      <div class="button_items">
+        <div id="btn1" class="button_bar">
+          <a href="#">By Date Read</a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end .panel_bar -->
+
+</div> <!-- end #bookshelf_slider -->
+
+<script type="text/javascript">
+    //define custom parameters
+    $.bookshelfSlider('#bookshelf_slider', {
+      'item_width': '100%', //responsive design > resize window to see working
+      'item_height': 320,
+      'products_box_margin_left': 30,
+      'product_title_textcolor': '#ffffff',
+      'product_title_bgcolor': '#c33b4e',
+      'product_margin': 20,
+      'product_show_title': true,
+      'show_title_in_popup': true,
+      'show_selected_title': true,
+      'show_icons': false,
+      'buttons_margin': 15,
+      'buttons_align': 'center', // left, center, right
+      'slide_duration': 800,
+      'slide_easing': 'easeInOutQuad',
+      'arrow_duration': 800,
+      'arrow_easing': 'easeInOutQuad',
+      'video_width_height': [500,290],
+      'iframe_width_height': [500,330]
+      }
+    );
+</script>

@@ -48,6 +48,8 @@ navigation:
   url: /
 - text: Archives
   url: /archives
+- text: Books
+  url: /books
 
 # ----------------------- #
 #       Jekyll Asset Pipeline        #
