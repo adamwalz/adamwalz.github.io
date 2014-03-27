@@ -46,7 +46,7 @@ Well first off it sounds pretty cool doesn't it?
 
 > Two brains are better than one
 
-If there needs to be more than the coolness factor, I would say I have the romantic notion that two brain are better than one. I want to explore this notion from a computer science point of view.
+If there needs to be more than the coolness factor, I would say I have the romantic notion that two brains are better than one. I want to explore this notion from a computer science point of view.
 
 I'll try out different techniques in data mining, machine learning, visualization, and distributed computing to see how much we can really can by putting our heads together.
 
