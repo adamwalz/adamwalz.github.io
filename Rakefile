@@ -74,7 +74,7 @@ end
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (prompts for title)
 desc "Create a new page in (filename)/index.#{new_page_ext}"
 task :new_page, :filename do |t, args|
-  args.with_defaults(:filename => get_stdin('Enter a title for your post: '))
+  args.with_defaults(:filename => get_stdin('Enter a title for your page: '))
   page_dir = []
   if args.filename.downcase =~ /(^.+\/)?(.+)/
     filename, dot, extension = $2.rpartition('.').reject(&:empty?)         # Get filename and extension
