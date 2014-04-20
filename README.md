@@ -52,6 +52,28 @@ The Rakefile is currently on set up to deploy via rsync, but other deployment op
 
 `document_root` - The remote directory in which your generated site files will be copied into
 
+## Making this site your own
+
+I've tried hard to make this site as modular as possible, relying on Jekyll variables wherever I can. To take *adamwalz.net* and turn it into your own site, it should be as simple as doing the following. 
+
+* Remove everything of mine from the *_posts* and *_drafts* directories
+* Remove everything from the *_assets/images/posts* directory
+* In *_config.yml* change the following variables to reflect your personal use
+    - url
+    - name
+    - description
+    - author
+    - email
+    - github_user
+    - twitter_user
+    - googleplus_user
+    - linkedin_user
+    - disqus_short_name
+    - google_analytics_tracking_id
+* Remove any Jekyll pages that you don't want. I probably won't keep this README updated after every page I add, but if you see a page such as About.html, go ahead and remove it if you don't want it. No harm will be done by removing a page.
+
+Running `rake build` after doing this will create a blank blog with all of the styling I am currently using, but without any posts or content in the default pages.
+
 ## License
 
 The following directories and their contents are Copyright Adam Walz. You may not reuse anything therein without my permission:
