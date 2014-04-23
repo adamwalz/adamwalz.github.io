@@ -1,4 +1,4 @@
-url: http://adamwalz.net
+url: http://preview.adamwalz.net
 name: Swarm Intelligence
 description: Adam Walz Blog and Portfolio
 author: Adam Walz
@@ -12,7 +12,7 @@ subscribe_email:
 email: adam@adamwalz.net
 
 # ----------------------- #
-#           Jekyll & Plugins           #
+#    Jekyll & Plugins     #
 # ----------------------- #
 markdown: kramdown
 pygments: true
@@ -41,7 +41,7 @@ default_asides: []
 # page_asides:
 
 # ----------------------- #
-#           Octoflat Theme          #
+#    Octoflat Theme       #
 # ----------------------- #
 navigation:
 - text: Home
@@ -50,7 +50,7 @@ navigation:
   url: /archives
 
 # ----------------------- #
-#       Jekyll Asset Pipeline        #
+# Jekyll Asset Pipeline   #
 # ----------------------- #
 assets:
   js_compressor:  uglifier
@@ -62,7 +62,7 @@ assets:
     - _assets/fonts
 
 # ----------------------- #
-#        3rd Party Settings          #
+#   3rd Party Settings    #
 # ----------------------- #
 
 # Github repositories
@@ -73,16 +73,16 @@ github_skip_forks: true
 
 # Twitter
 twitter_user: adamwalz
-twitter_tweet_button: true
+twitter_tweet_button: false
 
 # Google +1
-google_plus_one: true
+google_plus_one: false
 google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
 googleplus_user: +AdamWalz
-googleplus_hidden: false
+googleplus_hidden: true
 
 # LinkedIn Profile
 linkedin_user: adamwalz
@@ -96,15 +96,15 @@ delicious_user:
 delicious_count: 3
 
 # AddThis Sharing Profile
-addthis_profile_id: ra-52bf43f876c34f5f
+addthis_profile_id:
 
 # Disqus Comments
-disqus_short_name: SwarmIntelligence
-disqus_show_comment_count: true
+disqus_short_name:
+disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id: UA-40439919-1
-google_analytics_domain_name: adamwalz.net
+google_analytics_tracking_id:
+google_analytics_domain_name:
 
 # Facebook Like
-facebook_like: true
+facebook_like: false

@@ -1,26 +1,45 @@
+#------------------------------------------------------------------------------
+#          FILE:  Rakefile
+#   DESCRIPTION:  Helper methods to generate and deploy a jekyll site
+#        AUTHOR:  Adam Walz <adam@adamwalz.net>
+#       VERSION:  2.0.0
+#------------------------------------------------------------------------------
+
 require "stringex"
+
+## -- User configs -- ##
+## -- (change these according to your server settings) -- ##
+domain_name    = 'adamwalz.net'
+ssh_user       = 'adamwalz'
+ssh_host       = 'ignis'
+document_root  = "/home/#{ssh_user}/Sites/"
+
+## -- Deployment method -- ##
+deploy_via     = 'rsync' # options: rsync only currently
+
+## ------------------------------------------------------------------- ##
+## --                                                               -- ##
+## --                                                               -- ##
+## --  You probably won't need to change anything below this point  -- ##
+## --                                                               -- ##
+## --                                                               -- ##
+## ------------------------------------------------------------------- ##
+
+## -- Default Configs -- ##
+site_dir      = '_site'    # generated html site directory
+posts_dir     = '_posts'    # published post directory
+drafts_dir    = '_drafts'    # draft post directory
+stash_dir     = '_stash'
+new_post_ext  = 'md'  # default new page file extension when using the new_post task
+new_page_ext  = 'md'  # default new page file extension when using the new_page task
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user       = 'adamwalz'
-ssh_host       = 'ignis'
-ssh_port       = 22
-document_root  = "/home/#{ssh_user}/Sites/adamwalz.net/"
-rsync_delete   = true
-rsync_args     = '--chmod=Du=rwx,Dg=rx,Do=,Fu=rw,Fg=r,Fo= --perms --exclude="maintenance.html"'
-deploy_default = 'rsync'
+rsync_delete  = true
+rsync_args    = '--chmod=Du=rwx,Dg=rx,Do=,Fu=rw,Fg=r,Fo= --perms'
 
-# This will be configured for you when you run config_deploy
-deploy_branch  = 'master'
-
-## -- Misc Configs -- ##
-site_dir      = '_site'    # generated html site directory
-posts_dir      = '_posts'    # published post directory
-drafts_dir      = '_drafts'    # draft post directory
-stash_dir       = '_stash'
-new_post_ext    = 'md'  # default new page file extension when using the new_post task
-new_page_ext    = 'md'  # default new page file extension when using the new_page task
-server_port     = 4000      # port for preview server eg. localhost:4000
+ssh_port      = 22
+server_port   = 4000      # port for preview server eg. localhost:4000
 
 #######################
 # Working with Jekyll #
@@ -29,21 +48,31 @@ server_port     = 4000      # port for preview server eg. localhost:4000
 desc 'Generate jekyll site'
 task :build do
   puts '## Generating Site with Jekyll'
-  system 'jekyll build'
+  puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
+  ok_failed system 'jekyll build --config _config.yml'
+end
+
+desc 'Generate jekyll site'
+task "build-drafts" do
+  puts '## Generating Site with Jekyll'
+  puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
+  ok_failed system 'jekyll build --drafts --config _config.preview.yml'
 end
 
 task :generate => :build
 
 desc 'Watch the site and regenerate when it changes'
 task :watch do
-  puts 'Starting to watch source with Jekyll'
-  system 'jekyll build --watch --drafts'
+  puts '## Starting to watch source with Jekyll'
+  puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
+  ok_failed system 'jekyll build --watch --drafts --config _config.preview.yml'
 end
 
 desc 'preview the site in a web browser'
 task :preview do
-  puts "Starting to watch source with Jekyll. Starting Rack on port #{server_port}"
-  system "jekyll serve --watch --drafts --port #{server_port}"
+  puts "## Starting to watch source with Jekyll. Starting Rack on port #{server_port}"
+  puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
+  system "jekyll serve --watch --drafts --port #{server_port} --config _config.preview.yml"
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (prompts for title)
@@ -55,7 +84,8 @@ task :new_post, :title do |t, args|
     title = get_stdin('Enter a title for your post: ')
   end
   mkdir_p drafts_dir
-  filename = "#{drafts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  now = Time.now
+  filename = File.join(drafts_dir, "#{now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}")
   if File.exist?(filename)
     abort('rake aborted!') if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) != 'y'
   end
@@ -64,8 +94,8 @@ task :new_post, :title do |t, args|
     post.puts '---'
     post.puts 'layout: post'
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
-    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
-    post.puts 'comments: true'
+    post.puts "date: '#{now.strftime('%Y-%m-%d %H:%M:%S %z')}'"
+    post.puts 'comments: false'
     post.puts 'categories: '
     post.puts '---'
   end
@@ -74,9 +104,13 @@ end
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (prompts for title)
 desc "Create a new page in (filename)/index.#{new_page_ext}"
 task :new_page, :filename do |t, args|
-  args.with_defaults(:filename => get_stdin('Enter a title for your page: '))
+  if args.filename
+    filename = args.filename
+  else
+    filename = get_stdin('Enter a title for your page: ')
+  end
   page_dir = []
-  if args.filename.downcase =~ /(^.+\/)?(.+)/
+  if filename.downcase =~ /(^.+\/)?(.+)/
     filename, dot, extension = $2.rpartition('.').reject(&:empty?)         # Get filename and extension
     title = filename
     page_dir.concat($1.downcase.sub(/^\//, '').split('/')) unless $1.nil?  # Add path to page_dir Array
@@ -98,9 +132,9 @@ task :new_page, :filename do |t, args|
       page.puts '---'
       page.puts 'layout: page'
       page.puts "title: \"#{title}\""
-      page.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
-      page.puts 'comments: true'
-      page.puts 'sharing: true'
+      page.puts "date: '#{Time.now.strftime('%Y-%m-%d %H:%M')}'"
+      page.puts 'comments: false'
+      page.puts 'sharing: false'
       page.puts 'footer: true'
       page.puts '---'
     end
@@ -123,9 +157,10 @@ task :integrate do
   FileUtils.mv Dir.glob("#{stash_dir}/*.*"), "#{posts_dir}/"
 end
 
-desc "Clean out caches: .pygments-cache, .gist-cache, .sass-cache"
+desc "Clean out caches and generated site"
 task :clean do
-  rm_rf [".pygments-cache/**", ".gist-cache/**", ".sass-cache/**"]
+  puts '## Cleaning caches and deleting generated site directory'
+  ok_failed rm_rf [".pygments-cache/**", ".gist-cache/**", ".sass-cache/**", site_dir]
 end
 
 ##############
@@ -133,37 +168,46 @@ end
 ##############
 
 desc 'Default deploy task'
-task :deploy do
-  Rake::Task["#{deploy_default}"].execute
+task :deploy => [:integrate, :build] do
+  Rake::Task[deploy_via].invoke
 end
 
-desc 'Generate website and deploy'
-task :gen_deploy => [:integrate, :generate, :deploy] do
+desc 'Deploy to a preview subdomain of site'
+task "deploy-preview" => [:integrate, "build-drafts"]do
+  Rake::Task[deploy_via].invoke(true)
 end
 
-desc 'Deploy website via rsync'
-task :rsync do
-  exclude = ""
+task :rsync, :preview do |t, args|
+  args.with_defaults(:preview => false)
+
+  exclude = '--exclude=\'maintenance.html\''
   if File.exists?('./rsync-exclude')
-    exclude = "--exclude-from '#{File.expand_path('./rsync-exclude')}'"
+    exclude = exclude + " --exclude-from '#{File.expand_path('./rsync-exclude')}'"
   end
-  puts '## Deploying website via Rsync'
-  ok_failed system("rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{rsync_args} #{"--delete" unless rsync_delete == false} #{site_dir}/ #{ssh_user}@#{ssh_host}:#{document_root}")
+
+  puts "## Deploying #{'preview of ' if args[:preview] }website via Rsync"
+  site_root = File.join(document_root, "#{'preview.' if args[:preview]}#{domain_name}")
+
+  ok_failed system "rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{rsync_args} #{"--delete" unless rsync_delete == false} #{site_dir}/ #{ssh_user}@#{ssh_host}:#{site_root}"
+
   puts '## Fixing server-side permissions'
-  ok_failed system("ssh #{ssh_user}@#{ssh_host} -p #{ssh_port} chgrp -R www-data #{document_root}")
+  ok_failed system "ssh #{ssh_user}@#{ssh_host} -p #{ssh_port} 'chgrp -R www-data #{site_root}/'"
 end
 
 desc 'Toggle maintenance mode for website'
 task :maintenance do
+  abort("maintenance mode is only written for rsync deployment") if deploy_via != 'rsync'
+
   puts '## Toggling site maintenance mode'
   # Remove --exclude="maintenance.html" from rsync_args when changes are made
   puts 'Remember, changes to the maintenance page must be manually uploaded'
-  maint_file = "#{document_root}maintenance.html"
+  maint_file = File.join(document_root, domain_name, 'error', 'maintenance.html')
+  main_link = File.join(document_root, domain_name, 'maintenance.html')
 
-  turn_on = "ln -s #{document_root}error/maintenance.html #{maint_file} && echo \"Maintenance: On\""
-  turn_off = "unlink #{maint_file} && echo \"Maintenance: Off\""
-  maint_cmd = "if [ -h #{maint_file} ]; then #{turn_off}; else #{turn_on}; fi"
-  ok_failed system("ssh #{ssh_user}@#{ssh_host} -p #{ssh_port} '#{maint_cmd}'")
+  turn_on = "ln -s #{maint_file} #{maint_link} && echo \"Maintenance: On\""
+  turn_off = "unlink #{maint_link} && echo \"Maintenance: Off\""
+
+  ok_failed system "ssh #{ssh_user}@#{ssh_host} -p #{ssh_port} 'if [ -h #{maint_link} ]; then #{turn_off}; else #{turn_on}; fi'"
 end
 
 def ok_failed(condition)
@@ -172,11 +216,6 @@ def ok_failed(condition)
   else
     puts 'FAILED'
   end
-end
-
-def get_stdin(message)
-  print message
-  STDIN.gets.chomp
 end
 
 def get_stdin(message)
@@ -193,8 +232,18 @@ def ask(message, valid_options)
   answer
 end
 
+# Returns whether a command exists in PATH.
+#
+# @param [String] command the name of the command.
+# @return [true, false] if true, the command exists; otherwise, it does not.
+def command?(command)
+  ENV['PATH'].split(':').any? do |directory|
+    File.exists?(File.join(directory, command))
+  end
+end
+
 desc 'list tasks'
 task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
-  puts '(type rake -T for more detail)\n\n'
+  puts '(type rake -T for more detail)'
 end
