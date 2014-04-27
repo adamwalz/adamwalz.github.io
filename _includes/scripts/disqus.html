@@ -3,7 +3,6 @@
     var disqus_shortname = '{{ site.disqus_short_name }}';
     {% if page.comments == true %}
       var disqus_identifier = '{{ page.url }}';
-      var disqus_url = '{{ site.url }}{{ page.url }}';
       var disqus_script = 'embed.js';
     {% else %}
       var disqus_script = 'count.js';
