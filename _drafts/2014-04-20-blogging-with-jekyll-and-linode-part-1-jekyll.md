@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Blogging with Jekyll and Linode Part 1: Jekyll"
-date: 2014-04-20 22:19:57 -0700
+date: '2014-04-26 20:21:57 -0700'
 comments: true
 categories: tutorial blogging
 tags:
@@ -18,11 +18,15 @@ Jekyll was described by it's creator Tom Preston-Werner, co-founder of Github, a
 
 Along the way we will touch on the tools of the trade such as git, ruby, nginx, the terminal, text editors and networking. If I miss a key area along the way and you'd like me to write about it, please leave a comment.
 
+tl;dr? Jump ahead to the [tutoral](#create-your-own)
+
 ## What is Jekyll (and when not to use it)
 
 ![Jekyll Logo]({% asset_path posts/blogging_with_jekyll/jekyll/logo.png %})
 
 Jekyll is a static site generator that serves as a file-based content managment system for websites (usually blogs, but not necessarily). This description has two main keywords: **static** and **generator**
+
+
 
 ### static
 
@@ -103,9 +107,70 @@ $ jekyll serve --watch
 
 *jekyll serve --watch* does the same thing as *serve*, but every time you change a file, the preview will be automatically regenerated to reflect this change. This can come in handy when you are actively working on a post, and want to see in real time how your markdown is being converted into HTML and how the final page will look. 
 
-## Need more help
+## Create your own
+
+Ok tutorial time. Since jekyll is written in the ruby programming language, we'll use ruby-gems to install jekyll on your computer. Both ruby and ruby-gems are probably already available, but other than their availability, you don't need to know much about them to get started. 
+
+{% highlight bash %}
+$ gem install jekyll
+{% endhighlight %}
+
+Jekyll provies the scaffolding of your new website by default, and gives an easy way to create the necessary directory structure previously mentioned. Typing *jekyll new directory* will create all the folders needed to start a new site.
+
+{% highlight bash %}
+$ jekyll new my-blog
+New jekyll site installed in /Users/adamwalz/my-blog.
+{% endhighlight %}
+
+And thats it. You have just created an entire site. Go into that directory and preview it with *jekyll serve* to see how it looks. After running the *jekyll serve* command, open a browser and go to `http://localhost:4000`
+
+{% highlight bash %}
+$ cd my-blog
+$ jekyll serve
+Configuration file: /Users/adamwalz/my-blog/_config.yml
+            Source: /Users/adamwalz/my-blog
+       Destination: /Users/adamwalz/my-blog/_site
+      Generating... done.
+    Server address: http://0.0.0.0:4000
+  Server running... press ctrl-c to stop.
+{% endhighlight %}
+
+![Jekyll New]({% asset_path posts/blogging_with_jekyll/jekyll/jekyll_new.png %})
+
+To start changing some of the default options, open *_config.yml* and edit the text after `name:` to change the title of the site. You can also start by editing these lines in *_layouts/default.html* to change the links in the footer of the site.
+
+{% highlight html %}
+<p>
+  <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+  <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+</p>
+{% endhighlight %}
+
+Finally, the sample first blog post, written in markdown is in *_posts/welcome-to-jekyll.markdown*. Opening that file in a text editor will give you a lot of insight into what markdown feels like, and how to add links and even a block of syntax-highlighted code. One thing in this file is unique to jekyll however, and not markdown.
+
+{% highlight yaml %}
+---
+layout: post
+title:  "Welcome to Jekyll!"
+date:   2014-04-26 19:06:39
+categories: jekyll update
+---
+{% endhighlight %}
+
+This is called *yaml frontmatter* and you will use it on almost every page you write. This is a list of configurations for the page. In the default frontmatter provided for this post there are variables for
+
+* **layout** - Which file to use for the look and feel of the page, in this case _layout/post.html
+* **title** - The title of this blog post
+* **date** - The publishing date you want associated with the post, it should not change after you deploy your site
+* **categories** - by default these are directories under which your blog will be placed when you generate the final html. In this case, my post will be created at `my-blog/_site/jekyll/update/2014/04/26/welcome-to-jekyll.html` and can be opened in the browser with the url *http://localhost:4000/jekyll/update/2014/04/26/welcome-to-jekyll.html*
+
+## Coming up next
+
+From here I recommend playing around with the pre-created files. Change one line at a time and then preview with *jekyll serve* and see what happens. You can create a new post by creating a file under *_posts* and follow the naming convention.
 
 This isn't always true in the world of open source tools, but the Jekyll website is fantastic and explains each concept in depth with examples. I used the website's documentation extensively in creating this blog and highly recommend it. The documentation is at [jekyllrb.com](http://www.jekyllrb.com)
+
+Coming up next in this series I will talk about git, a commonly used tool to keep track of each change your make to the code on your site, and be able to revert back to any change you have previously made if something goes wrong. Along with git I will be using the site [github.com](http://www.github.com) to store the code for your site on the internet, so you can edit it from any computer you are at.
 
 #### Notes
 
@@ -113,4 +178,4 @@ This isn't always true in the world of open source tools, but the Jekyll website
 [^2]: If you're in the market to create your own dynamic site, I recommend using Ruby on Rails. A great tutorial on setting up a Rails site with a database and user accounts can be found in Michael Hartl's (Ruby on Rails Tutorial)[http://ruby.railstutorial.org]
 [^3]: We'll talk about deployment in much more detail in an upcoming post.
 
-[1]: https://raw.githubusercontent.com/adamwalz/adamwalz.net/master/_posts/2014-04-20-blogging-with-jekyll-and-linode-part-1-jekyll.md
+[1]: https://raw.githubusercontent.com/adamwalz/adamwalz.net/master/_posts/2014-04-26-blogging-with-jekyll-and-linode-part-1-jekyll.md
