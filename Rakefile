@@ -2,7 +2,7 @@
 #          FILE:  Rakefile
 #   DESCRIPTION:  Helper methods to generate and deploy a jekyll site
 #        AUTHOR:  Adam Walz <adam@adamwalz.net>
-#       VERSION:  2.0.0
+#       VERSION:  2.0.1
 #------------------------------------------------------------------------------
 
 require "stringex"
@@ -56,7 +56,7 @@ desc 'Generate jekyll site'
 task "build-drafts" do
   puts '## Generating Site with Jekyll'
   puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
-  ok_failed system 'jekyll build --drafts --config _config.preview.yml'
+  ok_failed system 'jekyll build --drafts --config _config.yml,_config.preview.yml'
 end
 
 task :generate => :build
@@ -65,14 +65,14 @@ desc 'Watch the site and regenerate when it changes'
 task :watch do
   puts '## Starting to watch source with Jekyll'
   puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
-  ok_failed system 'jekyll build --watch --drafts --config _config.preview.yml'
+  ok_failed system 'jekyll build --watch --drafts --config _config.yml,_config.preview.yml'
 end
 
 desc 'preview the site in a web browser'
 task :preview do
   puts "## Starting to watch source with Jekyll. Starting Rack on port #{server_port}"
   puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
-  system "jekyll serve --watch --drafts --port #{server_port} --config _config.preview.yml"
+  system "jekyll serve --watch --drafts --port #{server_port} --config _config.yml,_config.preview.yml"
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (prompts for title)

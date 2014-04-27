@@ -1,111 +1,18 @@
-url: http://preview.adamwalz.net
-name: Swarm Intelligence
-title: Swarm Intelligence - Adam Walz's Blog and Portfolio
-description: "Musings on software, development, and life. I often post on Machine Learning, languages and tools I use, and books I've read. This is my excellent adventure"
-author: Adam Walz
+# This config file is used when previewing the site with "rake preview"
+# or "rake deploy-preview"
+# The variables defined in this file will overwrite those in _config.yml
 
-permalink: /blog/:year/:month/:day/:title/
-
-# RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
-subscribe_email:
-# RSS feeds can list your email address if you like
-email: adam@adamwalz.net
-
-# ----------------------- #
-#    Jekyll & Plugins     #
-# ----------------------- #
-markdown: kramdown
-pygments: true
-
-exclude:     ["Gemfile*", "Rakefile", "*.sublime-project", "*.sublime-workspace"]
-
-paginate: 10          # Posts per page on the blog index
-pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
-recent_posts: 5       # Posts in the sidebar Recent Posts section
-
-excerpt_separator: "\n\n\n"
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
-
-category_dir: categories
-
-titlecase: true       # Converts page and post titles to titlecase
-
-# list each of the sidebar modules you want to include, in the order you want them to appear.
-# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: []
-
-# Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
-# and add an array with the asides you want to use.
-# blog_index_asides:
-# post_asides:
-# page_asides:
-
-# ----------------------- #
-#    Octoflat Theme       #
-# ----------------------- #
-navigation:
-- text: Home
-  url: /
-- text: Archives
-  url: /archives
-
-# ----------------------- #
-# Jekyll Asset Pipeline   #
-# ----------------------- #
-assets:
-  js_compressor:  uglifier
-  css_compressor: sass
-  sources:
-    - _assets/images
-    - _assets/javascripts
-    - _assets/stylesheets
-    - _assets/fonts
-
-# ----------------------- #
-#   3rd Party Settings    #
-# ----------------------- #
-
-# Github repositories
-github_user: adamwalz
-github_repo_count: 3
-github_show_profile_link: true
-github_skip_forks: true
-
-# Twitter
-twitter_user: adamwalz
 twitter_tweet_button: false
 
-# Google +1
 google_plus_one: false
-google_plus_one_size: medium
-
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-googleplus_user: +AdamWalz
 googleplus_hidden: true
 
-# LinkedIn Profile
-linkedin_user: adamwalz
-
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
-# AddThis Sharing Profile
 addthis_profile_id:
 
-# Disqus Comments
 disqus_short_name:
 disqus_show_comment_count: false
 
-# Google Analytics
 google_analytics_tracking_id:
 google_analytics_domain_name:
 
-# Facebook Like
 facebook_like: false
