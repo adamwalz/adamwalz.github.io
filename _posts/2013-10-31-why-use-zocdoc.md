@@ -15,6 +15,8 @@ For me though, I am going to be moving to California in the coming months, I’l
 
 ![recommendations]({% asset_path posts/zocdoc/recommendations.png %})
 
+
+
 The first recommendation of course is “Sign Up for ZocDoc”, but the other four consist of a checklist of procedures such as an annual physical and dental cleaning. It was simple to click on each link and be taken to a list of dentists sorted both by distance from your house or work as well as ratings by other patients. The list is even filtered by your insurance provider and plan, so you can be assured you won’t be paying out-of-network when you get to the office.
 
 From there you can easily see which appointment slots the doctor has available, many of which are same-day appointments. I wanted to schedule mine well in advance, but I know the day will come when I NEED and appointment NOW, and I can see this as being a lifesaver[^2] when I’m sick.

@@ -2,7 +2,6 @@
 layout: post
 date: '2013-07-13'
 title: A Most Excellent Adventure
-excerpt: This is the first post for my new blog. I wanted it to be any introduction to what the future of this site will be, why I'm writing, and who I am.
 author: Adam Walz
 tags:
 - favorite
@@ -17,6 +16,8 @@ I've been thinking for a while about what I should write as my first post. I did
 So I've decided an introduction is in order to explain why I am writing this blog, and what the reader and myself will hopefully get out of my writing of it.
 
 I recently graduated from the University of Utah with a degree in computer science, but as I get out into the world of professional programming I realize I still am a complete student. I rather like it that way. In this field if you are not constantly learning you will certainly be left behind. With the speed that technology is evolving you will be left behind much more quickly than in other fields. So with this view of myself as a perceptual student, I wanted to take the reader along as I document my journey toward professional and personal enlightenment.
+
+
 
 Secondly, I am self-admittedly a terrible writer. I passed my two writing courses at the University of Utah with flying colors, A's in each, but I am convinced this was due solely to the competition in other papers my professors were reading. A [new report][1], Education Week's annual *Quality Counts*, ranks Utah's public schools 38th in the nation, up from 42nd the previous year. Anecdotally I've seen statistics like this easily mapped to the writing quality of my classmates. I skated by on this, but I am no better off for it. This blog is my second chance to become a *most excellent* writer. Bare with me.
 
