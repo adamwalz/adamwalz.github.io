@@ -12,7 +12,7 @@ subscribe_email:
 email: adam@adamwalz.net
 
 # ----------------------- #
-#           Jekyll & Plugins           #
+#    Jekyll & Plugins     #
 # ----------------------- #
 markdown: kramdown
 pygments: true
@@ -41,7 +41,7 @@ default_asides: []
 # page_asides:
 
 # ----------------------- #
-#           Octoflat Theme          #
+#    Octoflat Theme       #
 # ----------------------- #
 navigation:
 - text: Home
@@ -50,7 +50,7 @@ navigation:
   url: /archives
 
 # ----------------------- #
-#       Jekyll Asset Pipeline        #
+# Jekyll Asset Pipeline   #
 # ----------------------- #
 assets:
   js_compressor:  uglifier
@@ -62,7 +62,7 @@ assets:
     - _assets/fonts
 
 # ----------------------- #
-#        3rd Party Settings          #
+#   3rd Party Settings    #
 # ----------------------- #
 
 # Github repositories
