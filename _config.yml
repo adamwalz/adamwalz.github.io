@@ -1,6 +1,7 @@
 url: http://adamwalz.net
 name: Swarm Intelligence
-description: Adam Walz Blog and Portfolio
+title: Swarm Intelligence - Adam Walz's Blog and Portfolio
+description: "Musings on software, development, and life. I often post on Machine Learning, languages and tools I use, and books I've read. This is my excellent adventure."
 author: Adam Walz
 
 permalink: /blog/:year/:month/:day/:title/
