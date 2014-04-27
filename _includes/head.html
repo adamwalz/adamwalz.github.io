@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
+  <title>{% if page.fulltitle %}{{ page.fulltitle }}{% elsif page.title %}{{ page.title }} | {{ site.name }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="author" content="{{ site.author }}">
 
   {% capture description %}{% if page.description %}{{ page.description }}{% elsif site.description %}{{ site.description }}{% endif %}{% endcapture %}
