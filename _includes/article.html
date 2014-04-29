@@ -2,7 +2,7 @@
 {% if index %}
   <div class="row">
     <div class="col-sm-3 col-lg-2">
-      <h5 class="date-time">{% include post/date.html %}<i class="icon-calendar-empty"></i> {{ time }}</h5>
+      <h5 class="date-time">{% include post/date.html %}<i class="fa fa-calendar-o"></i> {{ time }}</h5>
 
       {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
         <a href="{% if index %}{{ site.url }}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread">Comments </a>
@@ -32,7 +32,7 @@
   <header>
     <div class="jumbotron" role="banner">
       <h1>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}<h1>
-      <h5>{% include post/date.html %}<i class="icon-calendar-empty"></i> {{ time }}</h5>
+      <h5>{% include post/date.html %}<i class="fa fa-calendar-o"></i> {{ time }}</h5>
     </div>
   </header>
   <div class="row">
