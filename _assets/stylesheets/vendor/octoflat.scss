@@ -1,8 +1,10 @@
+//= require vendor/fonts/font-awesome
+
 @import "compass";
 
 @import "octoflat/colors";
 @import "octoflat/flat-ui";
-@import "fonts/font-awesome";
+// @import "fonts/font-awesome";
 
 @mixin selection($bg, $color: inherit, $text-shadow: none){
   * {
@@ -38,4 +40,13 @@ article p {
     display: block;
     margin: auto;
   }
+}
+
+// Font-Awesome Tweaks
+.social-navbar {
+  font-size: 36px;
+  vertical-align: middle;
+}
+[class^="fa-"], [class*=" fa-"] {
+  line-height: 22px;
 }
