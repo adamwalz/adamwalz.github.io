@@ -4,15 +4,25 @@
     {
       "path": ".",
       "follow_symlinks": true,
-      "folder_exclude_patterns": [".pygments-cache", "*.sass-cache"],
-      "file_exclude_patterns": ["Gemfile.lock"]
+      "folder_exclude_patterns":
+        [
+          "bin",
+          ".bundle",
+          ".pygments-cache",
+          "*.sass-cache",
+        ],
+      "file_exclude_patterns":
+        [
+          "favicon.png",
+          "Gemfile.lock",
+        ]
     }
   ],
   "build_systems":
     [
       {
         "name": "Jekyll",
-        "shell_cmd": "jekyll build"
+        "shell_cmd": "jekyll build",
         }
     ]
 }
