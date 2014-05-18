@@ -2,7 +2,7 @@
 #          FILE:  Rakefile
 #   DESCRIPTION:  Helper methods to generate and deploy a jekyll site
 #        AUTHOR:  Adam Walz <adam@adamwalz.net>
-#       VERSION:  2.0.2
+#       VERSION:  2.0.3
 #------------------------------------------------------------------------------
 
 require "stringex"
@@ -11,7 +11,7 @@ require "stringex"
 ## -- (change these according to your server settings) -- ##
 domain_name    = 'adamwalz.net'
 ssh_user       = 'adamwalz'
-ssh_host       = 'ignis'
+ssh_host       = 'adamwalz.net'
 document_root  = "/home/#{ssh_user}/Sites/"
 
 ## -- Deployment method -- ##
