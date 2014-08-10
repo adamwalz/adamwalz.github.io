@@ -1,4 +1,4 @@
 _site
-_assets/.sass-cache
+.sass-cache
 !_includes/scripts
 .bundle/

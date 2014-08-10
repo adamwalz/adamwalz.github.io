@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Blogging with Jekyll and Linode Part 1: Jekyll"
 date: '2014-04-26 20:21:57 -0700'
 comments: true

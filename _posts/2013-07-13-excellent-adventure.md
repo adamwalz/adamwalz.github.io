@@ -1,5 +1,4 @@
 ---
-layout: post
 date: '2013-07-13'
 title: A Most Excellent Adventure
 author: Adam Walz

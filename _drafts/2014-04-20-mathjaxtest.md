@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "MathJaxTest"
 date: 2014-04-20 15:18:25 -0700
 comments: false

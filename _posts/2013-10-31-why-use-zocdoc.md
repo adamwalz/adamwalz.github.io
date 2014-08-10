@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  Why I Use ZocDoc to Find and Schedule Great Doctors
 date:   2013-10-31 23:11:56
 author: Adam Walz
