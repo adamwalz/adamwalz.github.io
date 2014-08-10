@@ -4,7 +4,6 @@
 
 @import "octoflat/colors";
 @import "octoflat/flat-ui";
-// @import "fonts/font-awesome";
 
 @mixin selection($bg, $color: inherit, $text-shadow: none){
   * {
@@ -23,7 +22,6 @@ $link-color: lighten(#165b94, 3) !default;
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
 .mono { font-family: $mono; }
 
-@import "octoflat/solarized";
 @import "octoflat/syntax";
 @import "octoflat/quotes";
 @import "octoflat/jumbotron";
