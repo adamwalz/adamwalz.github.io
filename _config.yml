@@ -16,6 +16,8 @@ email: adam@adamwalz.net
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
+highlighter: rouge
+
 exclude:     ["Gemfile*", "Rakefile", "*.sublime-project", "*.sublime-workspace"]
 
 paginate: 10          # Posts per page on the blog index
