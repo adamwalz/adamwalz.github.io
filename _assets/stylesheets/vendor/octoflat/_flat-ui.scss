@@ -2600,6 +2600,14 @@ body.vjs-full-window {
   opacity: .4;
 }
 
+.post-title h1 {
+  font-size: 55px;
+  line-height: 60px;
+  font-family: "Quicksand";
+  padding: 0px;
+  color: $primary-color;
+}
+
 .badge {
   display: inline-block;
   padding: 4px 4px;
