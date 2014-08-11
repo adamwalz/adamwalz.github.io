@@ -1,5 +1,8 @@
-{% include scripts/disqus.html %}
+{% if jekyll.environment == 'production' %}
+  {% include scripts/disqus.html %}
+  {% include scripts/facebook_like.html %}
+  {% include scripts/google_plus_one.html %}
+  {% include scripts/twitter_sharing.html %}
+{% endif %}
+
 {% include scripts/mathjax.html %}
-{% include scripts/facebook_like.html %}
-{% include scripts/google_plus_one.html %}
-{% include scripts/twitter_sharing.html %}

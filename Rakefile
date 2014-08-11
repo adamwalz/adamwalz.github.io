@@ -2,7 +2,7 @@
 #          FILE:  Rakefile
 #   DESCRIPTION:  Helper methods to generate and deploy a jekyll site
 #        AUTHOR:  Adam Walz <adam@adamwalz.net>
-#       VERSION:  2.0.3
+#       VERSION:  2.0.4
 #------------------------------------------------------------------------------
 
 require "stringex"
@@ -46,54 +46,43 @@ server_port   = 4000      # port for preview server eg. localhost:4000
 #######################
 
 desc 'Generate jekyll site'
-task :build do
-  puts '## Generating Site with Jekyll'
+task :build, :production? do |t, args|
+  puts "## Generating #{'preview of ' unless args.production? }Site with Jekyll"
   puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
-  ok_failed system 'jekyll build --config _config.yml'
-end
 
-desc 'Generate jekyll site'
-task "build-drafts" do
-  puts '## Generating Site with Jekyll'
-  puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
-  ok_failed system 'jekyll build --drafts --config _config.yml,_config.preview.yml'
+  env = args.production? ? 'JEKYLL_ENV=production' : 'JEKYLL_ENV=development'
+  drafts = args.production? ? '' : '--drafts'
+
+  ok_failed system "#{env} jekyll build #{drafts}"
 end
 
 task :generate => :build
-
-desc 'Watch the site and regenerate when it changes'
-task :watch do
-  puts '## Starting to watch source with Jekyll'
-  puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
-  ok_failed system 'jekyll build --watch --drafts --config _config.yml,_config.preview.yml'
-end
 
 desc 'preview the site in a web browser'
 task :preview do
   puts "## Starting to watch source with Jekyll. Starting Rack on port #{server_port}"
   puts '\'jekyll\' does not exist in path, run \'bundle install\'' unless command? 'jekyll'
-  system "jekyll serve --watch --drafts --port #{server_port} --config _config.yml,_config.preview.yml"
+
+  env = 'JEKYLL_ENV=development'
+  ok_failed system "#{env} jekyll serve --watch --drafts --port #{server_port}"
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (prompts for title)
 desc "Begin a new post in #{drafts_dir}"
 task :new_post, :title do |t, args|
-  if args.title
-    title = args.title
-  else
-    title = get_stdin('Enter a title for your post: ')
-  end
+  args.with_defaults(:title => get_stdin('Enter a title for your post: '))
+
   mkdir_p drafts_dir
   now = Time.now
-  filename = File.join(drafts_dir, "#{now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}")
+  filename = File.join(drafts_dir, "#{now.strftime('%Y-%m-%d')}-#{args.title.to_url}.#{new_post_ext}")
   if File.exist?(filename)
     abort('rake aborted!') if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) != 'y'
   end
+
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts '---'
-    post.puts 'layout: post'
-    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+    post.puts "title: \"#{args.title.gsub(/&/,'&amp;')}\""
     post.puts "date: '#{now.strftime('%Y-%m-%d %H:%M:%S %z')}'"
     post.puts 'comments: false'
     post.puts 'categories: '
@@ -102,51 +91,40 @@ task :new_post, :title do |t, args|
 end
 
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (prompts for title)
-desc "Create a new page in (filename)/index.#{new_page_ext}"
-task :new_page, :filename do |t, args|
-  if args.filename
-    filename = args.filename
-  else
-    filename = get_stdin('Enter a title for your page: ')
-  end
-  page_dir = []
-  if filename.downcase =~ /(^.+\/)?(.+)/
-    filename, dot, extension = $2.rpartition('.').reject(&:empty?)         # Get filename and extension
-    title = filename
-    page_dir.concat($1.downcase.sub(/^\//, '').split('/')) unless $1.nil?  # Add path to page_dir Array
-    if extension.nil?
-      page_dir << filename
-      filename = "index"
-    end
-    extension ||= new_page_ext
-    page_dir = File.join(page_dir)
-    filename = filename.downcase.to_url
+desc "Create a new page in (title)/index.#{new_page_ext}"
+task :new_page, :title do |t, args|
+  args.with_defaults(:title => get_stdin('Enter a title for your page: '))
 
-    mkdir_p page_dir
-    file = File.join(page_dir, "#{filename}.#{extension}")
-    if File.exist?(file)
-      abort("rake aborted!") if ask("#{file} already exists. Do you want to overwrite?", ['y', 'n']) != 'y'
-    end
-    puts "Creating new page: #{file}"
-    open(file, 'w') do |page|
-      page.puts '---'
-      page.puts 'layout: page'
-      page.puts "title: \"#{title}\""
-      page.puts "date: '#{Time.now.strftime('%Y-%m-%d %H:%M')}'"
-      page.puts 'comments: false'
-      page.puts 'sharing: false'
-      page.puts 'footer: true'
-      page.puts '---'
-    end
-  else
-    puts "Syntax error: #{args.filename} contains unsupported characters"
+  unless args.title =~ /(^.+\/)?(.+)/
+    puts "Syntax error: #{args.title} contains unsupported characters"
+  end
+
+  mkdir_p args.title
+  filename = File.join(args.title, "index.#{new_page_ext}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) != 'y'
+  end
+
+  puts "Creating new page: #{args.title}"
+  open(filename, 'w') do |page|
+    page.puts '---'
+    page.puts "title: \"#{args.title}\""
+    page.puts "date: '#{Time.now.strftime('%Y-%m-%d %H:%M')}'"
+    page.puts 'comments: false'
+    page.puts 'sharing: false'
+    page.puts 'footer: false'
+    page.puts '---'
   end
 end
 
 # usage rake isolate[my-post]
 desc 'Move all other posts than the one currently being worked on to a temporary stash location (stash) so regenerating the site happens much more quickly.'
-task :isolate, :filename do |t, args|
-  mkdir_p(stash_dir) unless File.exist?(stash_dir)
+task :isolate, [:filename] => [:integrate] do |t, args|
+  if not args.filename
+    abort("rake aborted -- a file path to isolate is required")
+  end
+
+  mkdir_p stash_dir
   Dir.glob("#{posts_dir}/*.*") do |post|
     FileUtils.mv post, stash_dir unless post.include?(args.filename)
   end
@@ -158,9 +136,9 @@ task :integrate do
 end
 
 desc "Clean out caches and generated site"
-task :clean do
+task :clean => :integrate do
   puts '## Cleaning caches and deleting generated site directory'
-  ok_failed rm_rf [".pygments-cache/**", ".gist-cache/**", ".sass-cache/**", site_dir]
+  ok_failed rm_rf ['.pygments-cache', '.gist-cache', '.sass-cache', '.bundle', stash_dir, site_dir]
 end
 
 ##############
@@ -168,25 +146,28 @@ end
 ##############
 
 desc 'Default deploy task'
-task :deploy => [:integrate, :build] do
-  Rake::Task[deploy_via].invoke
-end
-
-desc 'Deploy to a preview subdomain of site'
-task "deploy-preview" => [:integrate, "build-drafts"]do
+task :deploy => :integrate do
   Rake::Task[deploy_via].invoke(true)
 end
 
-task :rsync, :preview do |t, args|
-  args.with_defaults(:preview => false)
+desc 'Deploy to a preview subdomain of site'
+task "deploy-preview" => :integrate do
+  Rake::Task[deploy_via].invoke(false)
+end
+
+task :rsync, :production? do |t, args|
+  args.with_defaults(:production? => false)
+  abort("rake aborted!") if args.production? and ask("Are you sure you want to deploy to production?", ['y', 'n']) != 'y'
+
+  Rake::Task[:build].invoke(args.production?)
 
   exclude = '--exclude=\'maintenance.html\''
   if File.exists?('./rsync-exclude')
     exclude = exclude + " --exclude-from '#{File.expand_path('./rsync-exclude')}'"
   end
 
-  puts "## Deploying #{'preview of ' if args[:preview] }website via Rsync"
-  site_root = File.join(document_root, "#{'preview.' if args[:preview]}#{domain_name}")
+  puts "## Deploying #{'preview of ' unless args.production? }website via Rsync"
+  site_root = File.join(document_root, "#{'preview.' unless args.production? }#{domain_name}")
 
   ok_failed system "rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{rsync_args} #{"--delete" unless rsync_delete == false} #{site_dir}/ #{ssh_user}@#{ssh_host}:#{site_root}"
 
