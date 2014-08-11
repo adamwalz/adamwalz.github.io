@@ -956,7 +956,7 @@ textarea,
   .checkbox .icon-to-fade,
   .radio .icon,
   .radio .icon-to-fade {
-    background: url(asset-path('checkbox.png')) -90px 0 no-repeat;
+    background: url(asset-path('controls/checkbox.png')) -90px 0 no-repeat;
     display: block;
     height: 20px;
     left: 0;
@@ -978,15 +978,15 @@ textarea,
 
 .radio .icon,
 .radio .icon-to-fade {
-  background-image: url(asset-path('radio.png')); }
+  background-image: url(asset-path('controls/radio.png')); }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
   .checkbox .icon {
-    background-image: url(asset-path('checkbox-2x.png'));
+    background-image: url(asset-path('controls/checkbox-2x.png'));
     background-size: 110px 110px; }
 
   .radio .icon {
-    background-image: url(asset-path('radio-2x.png'));
+    background-image: url(asset-path('controls/radio-2x.png'));
     background-size: 110px 110px; } }
 .toggle {
   background-color: $bg-color;
@@ -1012,7 +1012,7 @@ textarea,
   .toggle.toggle-off {
     background-color: #cbd2d8; }
     .toggle.toggle-off .toggle-radio {
-      background-image: url(asset-path('toggle/icon-off.png'));
+      background-image: url(asset-path('controls/icon-off.png'));
       background-position: 0 0;
       color: white;
       left: 0;
@@ -1022,7 +1022,7 @@ textarea,
       .toggle.toggle-off .toggle-radio:first-child {
         left: -120%; }
   .toggle .toggle-radio {
-    background: url(asset-path('toggle/icon-on.png')) right top no-repeat;
+    background: url(asset-path('controls/icon-on.png')) right top no-repeat;
     color: $tertiary-color;
     display: block;
     font-weight: 700;
@@ -1054,10 +1054,10 @@ textarea,
     .toggle.toggle-icon.toggle-off {
       border-radius: 7px 6px 6px 7px; }
       .toggle.toggle-icon.toggle-off .toggle-radio {
-        background-image: url(asset-path('toggle/block-off.png'));
+        background-image: url(asset-path('controls/block-off.png'));
         background-position: 0 0; }
     .toggle.toggle-icon .toggle-radio {
-      background-image: url(asset-path('toggle/block-on.png'));
+      background-image: url(asset-path('controls/block-on.png'));
       background-position: 62px 0;
       border-radius: 6px;
       min-width: 27px;
@@ -1067,10 +1067,10 @@ textarea,
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
   .toggle.toggle-off .toggle-radio {
-    background-image: url(asset-path('toggle/icon-off-2x.png'));
+    background-image: url(asset-path('controls/icon-off-2x.png'));
     background-size: 30px 29px; }
   .toggle .toggle-radio {
-    background-image: url(asset-path('toggle/icon-on-2x.png'));
+    background-image: url(asset-path('controls/icon-on-2x.png'));
     background-size: 30px 29px; } }
 .tagsinput {
   height: 100px;
