@@ -110,23 +110,19 @@ html .gist {
             a {
                 color: mix($code-color, $code-hl-comment) !important;
                 @include hover-link;
-                &:hover {
-                    color: $code-color !important;
-                }
                 &[href*='#file'] {
                     @extend .code-title;
                     position: absolute;
                     top: 0;
                     left: 0;
                     right: 0;
-                    color: #474747 !important;
-                    &:hover {
-                        color: $link-color !important;
-                    }
                 }
                 &[href*=raw] {
                     @extend .download-source;
                     top: 0;
+                }
+                &:hover {
+                  color: #7c7c7c !important;
                 }
             }
         }
@@ -349,9 +345,8 @@ figure.code {
 
 .code-title {
    text-align: center;
-   font-size: $code-font-size;
-   text-shadow: #cbcccc 0 1px 0;
-   color: #474747;
+   font-size: 12px;
+   color: #999999 !important;
    font-weight: normal;
    margin-bottom: 0;
    @include border-top-radius(9px);
@@ -363,9 +358,9 @@ figure.code {
    position: absolute;
    right: .8em;
    @include hover-link;
-   color: #666 !important;
+   color: #666666 !important;
    z-index: 1;
-   font-size: $code-font-size;
-   text-shadow: #cbcccc 0 1px 0;
+   font-size: 12px;
+   font-weight: bold;
    padding-left: 3em;
 }
