@@ -21,8 +21,7 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
 
 ### Right aligned images
 
-{:.right}
-![recommendations]({% asset_path posts/zocdoc/recommendations.png %})
+{% picture posts/zocdoc/recommendations.png alt="recommendations" class="pull-right" %}
 
 Text after aligned images wraps around
 

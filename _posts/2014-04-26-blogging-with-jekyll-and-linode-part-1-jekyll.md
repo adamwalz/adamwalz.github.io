@@ -23,7 +23,7 @@ tl;dr? Jump ahead to the [tutorial](#create-your-own)
 
 ## What is Jekyll (and when not to use it)
 
-![Jekyll Logo]({% asset_path posts/blogging_with_jekyll/jekyll/logo.png %})
+{% picture posts/blogging_with_jekyll/jekyll/logo.png alt="Jekyll logo" %}
 
 Jekyll is a static site generator that serves as a file-based content management system for websites (usually blogs, but not necessarily). This description has two main keywords: **static** and **generator**.
 
@@ -138,7 +138,7 @@ Configuration file: /Users/adamwalz/my-blog/_config.yml
   Server running... press ctrl-c to stop.
 {% endhighlight %}
 
-![Jekyll New]({% asset_path posts/blogging_with_jekyll/jekyll/jekyll_new.png %})
+{% picture posts/blogging_with_jekyll/jekyll/jekyll_new.png alt="Jekyll new" %}
 
 To start changing some of the default options, open *_config.yml* and edit the text after `name:` to change the title of the site. You can also start by editing these lines in *_layouts/default.html* to change the links in the footer of the site.
 
