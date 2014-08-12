@@ -2,7 +2,7 @@
 #          FILE:  Rakefile
 #   DESCRIPTION:  Helper methods to generate and deploy a jekyll site
 #        AUTHOR:  Adam Walz <adam@adamwalz.net>
-#       VERSION:  2.0.4
+#       VERSION:  2.0.5
 #------------------------------------------------------------------------------
 
 require "stringex"
@@ -74,7 +74,7 @@ task :new_post, :title do |t, args|
 
   mkdir_p drafts_dir
   now = Time.now
-  filename = File.join(drafts_dir, "#{now.strftime('%Y-%m-%d')}-#{args.title.to_url}.#{new_post_ext}")
+  filename = File.join(drafts_dir, "#{args.title.to_url}.#{new_post_ext}")
   if File.exist?(filename)
     abort('rake aborted!') if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) != 'y'
   end
@@ -82,7 +82,7 @@ task :new_post, :title do |t, args|
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts '---'
-    post.puts "title: \"#{args.title.gsub(/&/,'&amp;')}\""
+    post.puts "title: #{args.title.gsub(/&/,'&amp;')}"
     post.puts "date: '#{now.strftime('%Y-%m-%d %H:%M:%S %z')}'"
     post.puts 'comments: false'
     post.puts 'categories: '
