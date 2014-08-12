@@ -19,6 +19,8 @@ GEM
     execjs (2.0.2)
     fast-stemmer (1.0.2)
     ffi (1.9.3)
+    font-awesome-sass (4.1.0)
+      sass (~> 3.2)
     fssm (0.2.10)
     hike (1.2.3)
     jekyll (2.2.0)
@@ -102,6 +104,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass (~> 0.12)
+  font-awesome-sass (~> 4.1)
   jekyll (~> 2.2)
   jekyll-assets (~> 0.9)
   rb-gsl (~> 1.16.0.2)
