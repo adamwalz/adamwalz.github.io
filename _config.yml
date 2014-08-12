@@ -72,10 +72,10 @@ assets:
   js_compressor:  uglifier
   css_compressor: sass
   sources:
-    - _assets/images
-    - _assets/javascripts
-    - _assets/stylesheets
     - _assets/fonts
+    - _assets/javascripts
+    - _assets/styleimages
+    - _assets/stylesheets
 
 # ----------------------- #
 #   3rd Party Settings    #
