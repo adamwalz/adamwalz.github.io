@@ -24,6 +24,9 @@
       </h1>
       {{ post.excerpt }}
       {% if post.excerpt.size != post.content.size %}
+        {% if post.featured_image %}
+          {% picture half {{ post.featured_image }} %}
+        {% endif %}
         <a href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
       {% endif %}
     </div> <!-- end .col-sm-9 .col-lg-10 -->
