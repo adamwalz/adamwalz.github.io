@@ -97,6 +97,19 @@ picture:
         width: 450
       source_default:
         width: 350
+    half: # Half width pictures
+      ppi: [1, 1.5] # switch to 1.5x sized images on devices with a min resolution of 1.5dppx
+      attr:
+        class: "img-responsive center-block"
+      source_lrg:
+        media: "(min-width: 40em)"
+        width: 400
+      source_med:
+        media: "(min-width: 30em)"
+        width: 250
+      source_default:
+        width: 200
+
 
 # ----------------------- #
 #   3rd Party Settings    #
