@@ -5,6 +5,9 @@ $background_image: image-url("slc_skyline_blur.png");
   background-color: $bg-color;
   padding-left: 0px;
   text-align: left;
+  @media (max-width: 767px) {
+    font-size: 40px;
+  }
 }
 
 .container {
@@ -27,14 +30,7 @@ $background_image: image-url("slc_skyline_blur.png");
     color: $off_white;
     text-align: center;
   }
-}
-
-@media (max-width: 767px) {
-  .jumbotron {
-    font-size: 40px;
-  }
-
-  #swarmintelligence-jumbotron {
+  @media (max-width: 767px) {
     .container {
       font-size: 90%;
     }
