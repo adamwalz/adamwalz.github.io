@@ -23,7 +23,7 @@
         </a>
       </h1>
       {{ post.excerpt }}
-      {% if post.excerpt.size != post.content.size %}
+      {% if post.excerpt.size < post.content.size %}
         {% if post.featured_image %}
           <br/>{% picture half {{ post.featured_image }} %}
         {% endif %}
