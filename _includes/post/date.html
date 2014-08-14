@@ -6,5 +6,5 @@
 {% endif %}
 
 {% if updated.size > 0 %}
-  {% capture updated %}<time datetime="{{ updated | date_to_xmlschema }}" class="updated">Updated {{ updated | date_to_string }}</time>{% endcapture %}
+  {% capture updated %}<time datetime="{{ updated | date_to_xmlschema }}" class="updated">{{ updated | date_to_string }}</time>{% endcapture %}
 {% else %}{% assign updated = false %}{% endif %}

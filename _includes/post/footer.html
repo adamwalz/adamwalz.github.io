@@ -6,7 +6,7 @@
      {% if page.category or page.categories %}
        <div class="col-sm-6">
          <p class="meta">
-           {% if updated %}{{ updated }}</br>{% else %}{% endif %}
+           {% if updated %}<i class="fa fa-calendar-o"></i> Last updated {{ updated }}</br>{% endif %}
            {% include post/categories.html %}
          </p>
        </div>
