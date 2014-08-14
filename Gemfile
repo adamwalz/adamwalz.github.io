@@ -9,5 +9,4 @@ gem "compass", "~> 0.12"
 gem 'font-awesome-sass', '~> 4.1'
 gem 'rouge', '~> 1.6'
 
-gem "rubypants", "~> 0.2"
 gem "stringex", "~> 2.5"
