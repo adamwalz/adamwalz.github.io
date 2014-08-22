@@ -5,8 +5,6 @@
 #       VERSION:  2.0.5
 #------------------------------------------------------------------------------
 
-require "stringex"
-
 ## -- User configs -- ##
 ## -- (change these according to your server settings) -- ##
 domain_name    = 'adamwalz.net'
@@ -74,7 +72,7 @@ task :new_post, :title do |t, args|
 
   mkdir_p drafts_dir
   now = Time.now
-  filename = File.join(drafts_dir, "#{args.title.to_url}.#{new_post_ext}")
+  filename = File.join(drafts_dir, "#{to_url(args.title)}.#{new_post_ext}")
   if File.exist?(filename)
     abort('rake aborted!') if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) != 'y'
   end
@@ -100,7 +98,7 @@ task :new_page, :title do |t, args|
   end
 
   mkdir_p args.title
-  filename = File.join(args.title, "index.#{new_page_ext}")
+  filename = File.join(to_url(args.title), "index.#{new_page_ext}")
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) != 'y'
   end
@@ -211,6 +209,11 @@ def ask(message, valid_options)
     answer = get_stdin(message)
   end
   answer
+end
+
+def to_url(str)
+  url = str.gsub(/\s+/,'_') # replace whitespace with underscore
+  url.downcase
 end
 
 # Returns whether a command exists in PATH.

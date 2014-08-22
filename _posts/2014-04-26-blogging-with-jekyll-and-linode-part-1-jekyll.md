@@ -4,7 +4,7 @@ date: '2014-04-26 20:21:57 -0700'
 comments: true
 description: Introduction to blogging with Jekyll by learning what Jekyll is, when it should be used, and how to get started with a tutorial on building your first site
 keywords: jekyll blog tutorial
-categories: tutorial blogging
+categories: blogging
 tags:
 - jekyll
 - linode

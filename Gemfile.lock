@@ -90,7 +90,6 @@ GEM
     sprockets-sass (1.2.0)
       sprockets (~> 2.0)
       tilt (~> 1.1)
-    stringex (2.5.2)
     subexec (0.2.3)
     tilt (1.4.1)
     timers (1.1.0)
@@ -112,5 +111,4 @@ DEPENDENCIES
   mini_magick (~> 3.8)
   rb-gsl (~> 1.16.0.2)
   rouge (~> 1.6)
-  stringex (~> 2.5)
   uglifier (~> 2.5)

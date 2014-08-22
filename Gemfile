@@ -13,7 +13,3 @@ gem 'compass', '~> 0.12'
 
 # Picture Tag https://github.com/robwierzbowski/jekyll-picture-tag
 gem 'mini_magick', '~> 3.8'
-
-# Category generator plugin
-# https://github.com/imathis/octopress/blob/master/plugins/category_generator.rb
-gem 'stringex', '~> 2.5'
