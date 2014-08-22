@@ -25,7 +25,7 @@
       {{ post.excerpt }}
       {% if post.excerpt.size < post.content.size %}
         {% if post.featured_image %}
-          <br/>{% picture half {{ post.featured_image }} %}
+          <br/>{% image half {{ post.featured_image }} %}
         {% endif %}
         <a href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
       {% endif %}

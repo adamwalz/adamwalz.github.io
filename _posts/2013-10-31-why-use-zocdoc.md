@@ -12,7 +12,7 @@ I first heard about [ZocDoc](http://www.zocdoc.com/) from their episode of [Smal
 
 For me though, I am going to be moving to California in the coming months, I’ll be on a new healthcare plan and will be needing to find a completely new set of doctors, dentists, optometrists, etc. Luckily, ZocDoc has a list of the “Wellness Recommendation” steps for new users.
 
-{% picture posts/zocdoc/recommendations.png alt="recommendations" %}
+{% image default posts/zocdoc/recommendations.png alt="recommendations" %}
 
 
 
@@ -24,7 +24,7 @@ When I made my appointments they automatically can be added to your Google or iC
 
 Before ZocDoc, my history of going to the doctor, or heaven forbid… the dentist, was less than stellar. Since scheduling is moved to software in ZocDoc, the system can remind me the next time I need to go in for an appointment. Its like the oil change sticker in your car which, Oh I never do either, but in this case instead of driving all the way to Jiffy Lube and then waiting with a styrofoam cup of stale coffee, the feedback loop between getting the reminder and having your appointment scheduled is just a simple button in your email.
 
-{% picture posts/zocdoc/book_again.png alt="Book Again" %}
+{% image default posts/zocdoc/book_again.png alt="Book Again" %}
 
 I don’t think I will ever again see a doctor who doesn’t use ZocDoc, not only is it easier on me as patient to quickly make an appointment and find a new physician, but being able to use the simplest of technology is, in my mind, a basic prerequisite for the doctors I choose.
 

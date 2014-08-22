@@ -22,7 +22,7 @@ Secondly, I am self-admittedly a terrible writer. I passed my two writing course
 
 And last but not least, I want to help others learn from my experience (as I gain it).
 
-{% picture posts/excellent_adventure/bill_and_ted.jpg alt="Bill and Ted - Most Excellent" %}
+{% image default posts/excellent_adventure/bill_and_ted.jpg alt="Bill and Ted - Most Excellent" %}
 
 
 ### What this blog is

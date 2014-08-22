@@ -178,15 +178,15 @@ Use the `printf()` function.
 Images
 ------
 Centered Image
-{% picture posts/excellent_adventure/bill_and_ted.jpg alt="Optional alt text" %}
+{% image default posts/excellent_adventure/bill_and_ted.jpg alt="Optional alt text" %}
 
 Left aligned Image
-{% picture posts/excellent_adventure/bill_and_ted.jpg class="img-responsive" %}
+{% image default posts/excellent_adventure/bill_and_ted.jpg class="img-responsive" %}
 
 Right aligned Image
 
 <div class="clearfix">
-{% picture posts/excellent_adventure/bill_and_ted.jpg class="pull-right img-responsive" %}
+{% image default posts/excellent_adventure/bill_and_ted.jpg class="pull-right img-responsive" %}
 Images using pull-right or pull-left will have text wrap around. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </div>
 
