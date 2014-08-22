@@ -45,6 +45,16 @@ defaults:
     values:
       layout: "page"
 
+sitemap:
+  exclude:
+    - "/atom.xml"
+    - "/feed.xml"
+    - "/feed/index.xml"
+    - "403.html"
+    - "404.html"
+    - "405.html"
+    - "5xx.html"
+    - "maintenance.html"
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
