@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # Jekyll http://jekyllrb.com/
 gem 'jekyll', '~> 2.2'
 gem 'rouge', '~> 1.6'
-gem 'rb-gsl', '~> 1.16.0.2'
+gem 'rb-gsl', '~> 1.16.0.2', :group => :gsl
 
 # Jekyll Assets https://github.com/ixti/jekyll-assets
 gem 'jekyll-assets', '~> 0.9'
