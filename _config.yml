@@ -102,6 +102,10 @@ image:
       attr:
         class: "img-responsive center-block"
       width: 200
+    double: # Double width pictures
+      attr:
+        class: "img-responsive center-block"
+      width: 600
 
 
 # ----------------------- #
