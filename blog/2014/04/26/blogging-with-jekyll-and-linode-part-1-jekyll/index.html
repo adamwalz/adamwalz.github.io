@@ -5,13 +5,13 @@
   
   <head>
   <meta charset="utf-8">
-  <title>Swarm Intelligence - Adam Walz's Blog and Portfolio</title>
+  <title>Blogging with Jekyll and Linode Part 1: Jekyll | Swarm Intelligence</title>
   <meta name="author" content="Adam Walz">
 
   
-  <meta name="description" content="Musings on software, development, and life. I often post on Machine Learning, languages and tools I use, and books I've read. This is my excellent adventure.">
+  <meta name="description" content="Introduction to blogging with Jekyll by learning what Jekyll is, when it should be used, and how to get started with a tutorial on building your first site">
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content="jekyll blog tutorial">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://adamwalz.net/error/403.html">
+  <link rel="canonical" href="http://adamwalz.net/blog/2014/04/26/blogging-with-jekyll-and-linode-part-1-jekyll">
   <link href="/atom.xml" rel="alternate" title="Swarm Intelligence - Adam Walz's Blog and Portfolio" type="application/atom+xml">
   <link rel="icon" href="/assets/favicon/favicon-ab52fad7b8f4b81e70b5a24eee4525c0.ico">
 <!--[if IE]><link rel="shortcut icon" href="/assets/favicon/favicon-ab52fad7b8f4b81e70b5a24eee4525c0.ico"><![endif]-->
@@ -133,32 +133,279 @@
 
     <div class="container" id="main">
       <div id="content">
-        <article role="article">
+        <article class="hentry" role="article">
   
+
+  <header>
+    <div class="post-title" role="banner">
+      <h1>Blogging With Jekyll and Linode Part 1: Jekyll<h1>
+      <h5>
+
+
+
+  
+
+
+
+<i class="fa fa-calendar-o"></i> <time datetime="2014-04-26T20:21:57-07:00"  data-updated="true">26 Apr 2014</time></h5>
+    </div>
+  </header>
   <div class="row">
-  <div class="col-md-8">
-    <h1>Whoa, something's not right here.</h1>
-    <p><strong>403 Forbidden.</strong> I'm not sure you should be here. Kindly head back to <a href="/">the homepage</a>. If I messed something up though, email me at <a href="mailto:adam@adamwalz.net" title="Email">adam@adamwalz.net</a>.</p>
-    <hr>
-    <p>The following is a list of the latest posts from the blog. Maybe it will help you find what you're looking for.</p>
+    <div class="col-sm-12">
+      <h1 id="part-1-jekyll">Part 1: Jekyll</h1>
+<p>This is the first post in a multi-part series on creating a new blog from scratch in Jekyll and hosting it yourself with Linode and nginx. In this series I will walk the reader through the creation of <em>this</em> blog from first typing <code>jekyll new</code> to its current state.</p>
 
-    <ul>
-      
-        <li><a href="/blog/2014/08/24/blogging-with-jekyll-and-linode-part-2-git/">Blogging with Jekyll and Linode Part 2: Git and Github</a></li>
-      
-        <li><a href="/blog/2014/04/26/blogging-with-jekyll-and-linode-part-1-jekyll/">Blogging with Jekyll and Linode Part 1: Jekyll</a></li>
-      
-        <li><a href="/blog/2013/10/31/why-use-zocdoc/">Why I Use ZocDoc to Find and Schedule Great Doctors</a></li>
-      
-        <li><a href="/blog/2013/07/13/excellent-adventure/">A Most Excellent Adventure</a></li>
-      
-    </ul>
+<p>Jekyll was described by its creator Tom Preston-Werner, co-founder of Github, as “blogging like a hacker”. I received my degree is Computer Science and am currently working as a full-time developer, but I certainly don’t believe you need to have a theoretical CS background to use Jekyll. I will try my best to go through each step in my process with the most minimal assumptions possible.</p>
 
-  </div>
+<p>Along the way we will touch on the tools of the trade such as git, ruby, nginx, the terminal, text editors, and networking. If I miss a key area along the way and you’d like me to write about it, please leave a comment.</p>
+
+<p>tl;dr? Jump ahead to the <a href="#create-your-own">tutorial</a></p>
+
+<h2 id="what-is-jekyll-and-when-not-to-use-it">What is Jekyll (and when not to use it)</h2>
+
+<p><img src="/assets/images/posts/blogging_with_jekyll/jekyll/logo-350x162-f38998.png" class="img-responsive center-block" alt="Jekyll logo" /></p>
+
+<p>Jekyll is a static site generator that serves as a file-based content management system for websites (usually blogs, but not necessarily). This description has two main keywords: <strong>static</strong> and <strong>generator</strong>.</p>
+
+<h4 id="static">static</h4>
+
+<p>Being static means that when a browser requests your site, the server does not need to do any processing before serving the requested page. Contrast this to <a href="http://www.cnn.com">cnn.com</a> for instance. If a browser requests the home page for CNN, the server must look up in a database all the stories that are currently top news, it must get local news based on your location, if you are logged in it must know what your preferences are, etc. With a static site a user will get the same page every time they type the same web address<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, with no runtime processing.</p>
+
+<p>This makes jekyll sites amazingly fast, especially when put together with the nginx server. It also has lower overhead for the server so a single machine can serve a lot more pages to multiple people when your site gets overwhelmed by becoming a top hit on reddit for instance.</p>
+
+<p>There are drawbacks however. If you are creating a site where you need users to log in, or you want to setup a storefront and take payments, Jekyll is not for you<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>. These examples are called <em>dynamic</em> sites: sites that change based on the user’s actions. Make sure you know what kind of site you need before stepping in.</p>
+
+<h4 id="generator">generator</h4>
+
+<p>Secondly, Jekyll pages are generated. This separates the <em>content</em> of your site from the <em>presentation</em>. Once you have styled your site, and are happy with the navigation from page to page, you can focus solely on the content of your posts. I write my posts in <a href="https://daringfireball.net/projects/markdown/">Markdown</a> which is a small, simple syntax that allows me to write in plain text, without any html embedded. I can write quickly, it is easily readable in a text editor, and formatting is both intuitive and aesthetic. For example, want to create a header, just underline it.</p>
+
+<pre><code>Part 1: Jekyll
+==============
+</code></pre>
+
+<p>Jekyll then takes your Markdown posts and converts them into html to generate each page of your site. If you take a look at the <a href="https://raw.githubusercontent.com/adamwalz/adamwalz.net/master/_posts/2014-04-26-blogging-with-jekyll-and-linode-part-1-jekyll.md">Markdown I used</a> to generate this post, and compare it to the the html output by using “show source” in your browser, you can see that the difference is enormous. After comparing those two options, which would you rather write in when getting your thoughts across on screen?</p>
+
+<p>I should mention that you can also use <a href="http://textile.sitemonks.com">Textile</a> markup if you prefer it to Markdown, but I have never done so.</p>
+
+<h2 id="using-jekyll">Using Jekyll</h2>
+
+<h4 id="separating-your-site-logic">Separating your site logic</h4>
+
+<p>Jekyll is a site generator, and this has a major benefit when creating your site layout. I want a header and footer on each page of my site, but I certainly don’t want to re-write them every time I create a new post. With jekyll I can write them once and put the header and footer in their own files. It is then just a matter of telling jekyll where I want to use each of those files, and when my site is built jekyll will take care of finding all the sources it needs and compiling them into a single html file for each page.</p>
+
+<p>When creating your own site, keep in mind that these files, know as <em>includes</em>, can be as long or as short as you want them to be. My rule of thumb is that if I am going to copy and paste one bit of code into two pages, use an include. For example, this is my entire <em>header.html</em> include file.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  Hi. I'm {{ site.author }}.
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"tagline"</span><span class="nt">&gt;</span>Here are some thoughts of mine.<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h4 id="file-structure">File Structure</h4>
+
+<p>Jekyll relies on a well-defined directory/folder structure in order to generate your site. It has to know where your posts live, how to combine a markdown post with the html of your site layout, where includes files are stored, and which configurations you’ve set such as your site url.</p>
+
+<p>The basic requirement is that any directory or file beginning with an underscore is used for the generation phase of the site, while any file without a leading underscore will be used as a final page/post after generating the site.</p>
+
+<p>Posts will either go in the <em>_posts</em> or <em>_drafts</em> folder, depending on whether you want them published yet. HTML style and navigation will be put in the <em>_layouts</em> or <em>_includes</em> directories. The <em>_config.yml</em> file contains site-wide configurations defining the site’s url, author, link formatting, etc. When jekyll generates the site, the output will be created in the <em>_site</em> directory.</p>
+
+<pre><code>.
+├── _config.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.textile
+|   └── on-simplicity-in-technology.markdown
+├── _includes
+|   ├── footer.html
+|   └── header.html
+├── _layouts
+|   ├── default.html
+|   └── post.html
+├── _posts
+|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── _data
+|   └── members.yml
+├── _site
+└── index.html
+</code></pre>
+
+<h2 id="jekyll-command-line-tools">Jekyll command line tools</h2>
+
+<p>Jekyll comes with two important tools for the creation of your site.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll build</code></pre></div>
+
+<p><em>jekyll build</em> generates your site and places the generated HTML into the <em>_site</em> directory. When you are ready to deploy your site to the web, this is the directory you should copy onto your remote server<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll serve --watch</code></pre></div>
+
+<p><em>jekyll serve</em> builds your site and allows you to preview what you are writing on your own computer, before it goes live to the web. After typing <em>jekyll serve</em>, simply open up a web browser and go to <code>http://localhost:4000</code></p>
+
+<p><em>jekyll serve --watch</em> does the same thing as <em>serve</em>, but every time you change a file, the preview will be automatically regenerated to reflect this change. This can come in handy when you are actively working on a post, and want to see in real time how your markdown is being converted into HTML and how the final page will look.</p>
+
+<h2 id="create-your-own">Create your own</h2>
+
+<p>Ok, tutorial time. Everything we’ll be doing from this point on will be in a command line terminal and a simple text editor.</p>
+
+<p>Since jekyll is written in the ruby programming language, we’ll use ruby-gems to install jekyll on your computer. Both ruby and ruby-gems are probably already available, but other than their availability, you don’t need to know much about them to get started.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>gem install jekyll</code></pre></div>
+
+<p>Jekyll provides the scaffolding of your new website by default, and gives an easy way to create the necessary directory structure previously mentioned. Typing <em>jekyll new directory</em> will create all the folders needed to start a new site.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll new my-blog
+New jekyll site installed <span class="k">in</span> /Users/adamwalz/my-blog.</code></pre></div>
+
+<p>And thats it. You have just created an entire site. Go into that directory and preview it with <em>jekyll serve</em> to see how it looks. After running the <em>jekyll serve</em> command, open a browser and go to <code>http://localhost:4000</code></p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd </span>my-blog
+<span class="gp">$ </span>jekyll serve
+Configuration file: /Users/adamwalz/my-blog/_config.yml
+            Source: /Users/adamwalz/my-blog
+       Destination: /Users/adamwalz/my-blog/_site
+      Generating... <span class="k">done</span>.
+    Server address: http://0.0.0.0:4000
+  Server running... press ctrl-c to stop.</code></pre></div>
+
+<p><img src="/assets/images/posts/blogging_with_jekyll/jekyll/jekyll_new-350x224-a6afe4.png" class="img-responsive center-block" alt="Jekyll new" /></p>
+
+<p>To start changing some of the default options, open <em>_config.yml</em> and edit the text after <code>name:</code> to change the title of the site. You can also start by editing these lines in <em>_layouts/default.html</em> to change the links in the footer of the site.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com/yourusername"</span><span class="nt">&gt;</span>github.com/yourusername<span class="nt">&lt;/a&gt;&lt;br</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://twitter.com/yourusername"</span><span class="nt">&gt;</span>twitter.com/yourusername<span class="nt">&lt;/a&gt;&lt;br</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/p&gt;</span></code></pre></div>
+
+<p>Finally, the sample first blog post, written in Markdown is in <em>_posts/welcome-to-jekyll.markdown</em>. Opening that file in a text editor will give you a lot of insight into what markdown feels like, and how to add links and even a block of syntax-highlighted code. One thing in this file is unique to jekyll however, and not Markdown.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="s">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">Welcome</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Jekyll!"</span>
+<span class="s">date</span><span class="pi">:</span>   <span class="s">2014-04-26 19:06:39</span>
+<span class="s">categories</span><span class="pi">:</span> <span class="s">jekyll update</span>
+<span class="nn">---</span></code></pre></div>
+
+<p>This is called <em>yaml frontmatter</em> and you will use it on almost every page you write. This is a list of configurations for the page. In the default frontmatter provided for this post there are variables for</p>
+
+<ul>
+  <li><strong>layout</strong> - Which file to use for the look and feel of the page, in this case _layout/post.html</li>
+  <li><strong>title</strong> - The title of this blog post</li>
+  <li><strong>date</strong> - The publishing date you want associated with the post, it should not change after you deploy your site</li>
+  <li><strong>categories</strong> - This section will affect the final url when you deploy the generated site. In this case, since the categories are <em>jekyll</em> and <em>update</em>, the post will have the url <em>http://localhost:4000/jekyll/update/2014/04/26/welcome-to-jekyll.html</em></li>
+</ul>
+
+<h2 id="coming-up-next">Coming up next</h2>
+
+<p>From here I recommend playing around with the pre-created files. Change one line at a time and then preview with <em>jekyll serve</em> and see what happens. You can create a new post by creating a file under <em>_posts</em> and follow the naming convention.</p>
+
+<p>This isn’t always true in the world of open source tools, but the Jekyll website is fantastic and explains each concept in depth with examples. I used the website’s documentation extensively in creating this blog and highly recommend it. The documentation is at <a href="http://www.jekyllrb.com">jekyllrb.com</a>.</p>
+
+<p>Coming up next in this series I will talk about git, a commonly used tool to keep track of each change your make to the code on your site, and be able to revert back to any change you have previously made if something goes wrong. Along with git I will be using the site <a href="http://www.github.com">github.com</a> to store the code for your site on the internet, so you can edit it from any computer you are at.</p>
+
+<h4 id="notes">Notes</h4>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>As long as you haven’t updated your site in the meantime by re-building with jekyll. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>If you’re in the market to create your own dynamic site, I recommend using Ruby on Rails. A great tutorial on setting up a Rails site with a database and user accounts can be found in Michael Hartl’s <a href="http://ruby.railstutorial.org">Ruby on Rails Tutorial</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>We’ll talk about deployment in much more detail in an upcoming post. <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
 </div>
 
-</article>
+    </div>
+  </div> <!-- end .row -->
 
+
+
+</article>
+<footer>
+ <hr>
+ 
+   <div class="row">
+
+     
+       <div class="col-sm-6">
+         <p class="meta">
+           
+           
+
+
+  
+    <a href="/categories/blogging/"><span class="badge">blogging</span></a>
+  
+
+
+         </p>
+       </div>
+
+       
+         <div class="col-sm-6 social-sharing">
+           
+  <div class="sharing">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+      
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+      
+      
+        <a class="addthis_button_tweet"></a>
+      
+      
+        <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+      
+
+      <a class="addthis_button_evernote"></a>
+      <a class="addthis_button_pocket"></a>
+      <a class="addthis_button_hackernews"></a>
+      <a class="addthis_button_reddit"></a>
+
+      <a class="addthis_button_compact"></a>
+      <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript">var addthis_config =
+      {
+        data_track_addressbar: false
+      };
+    </script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52bf43f876c34f5f"></script>
+  </div> <!-- end .sharing -->
+
+
+         </div>
+       
+
+     
+
+   </div> <!-- end .row -->
+ 
+
+ <div class="row">
+   <div class="col-sm-12">
+     <p class="meta">
+       
+         <a class="basic-alignment left" href="/blog/2013/10/31/why-use-zocdoc/" title="Previous Post: Why I Use ZocDoc to Find and Schedule Great Doctors">&laquo; Why I Use ZocDoc to Find and Schedule Great Doctors</a>
+       
+       
+         <a class="basic-alignment right" href="/blog/2014/08/24/blogging-with-jekyll-and-linode-part-2-git/" title="Next Post: Blogging with Jekyll and Linode Part 2: Git and Github">Blogging with Jekyll and Linode Part 2: Git and Github &raquo;</a>
+       
+     </p>
+   </div> <!-- end .col-sm-12 -->
+ </div> <!-- end .row -->
+
+</footer>
+
+
+
+
+  <section>
+    <header><h1>Comments</h1><header>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 
       </div>
@@ -182,7 +429,8 @@
   <script type="text/javascript">
     var disqus_shortname = 'SwarmIntelligence';
     
-      var disqus_script = 'count.js';
+      var disqus_identifier = '/blog/2014/04/26/blogging-with-jekyll-and-linode-part-1-jekyll/';
+      var disqus_script = 'embed.js';
     
 
     (function () {

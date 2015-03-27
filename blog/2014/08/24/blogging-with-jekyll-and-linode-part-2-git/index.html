@@ -5,13 +5,13 @@
   
   <head>
   <meta charset="utf-8">
-  <title>Swarm Intelligence - Adam Walz's Blog and Portfolio</title>
+  <title>Blogging with Jekyll and Linode Part 2: Git and Github | Swarm Intelligence</title>
   <meta name="author" content="Adam Walz">
 
   
-  <meta name="description" content="Musings on software, development, and life. I often post on Machine Learning, languages and tools I use, and books I've read. This is my excellent adventure.">
+  <meta name="description" content="Introduction to the Git source code management system which allows you to track changes made over time, revert to any previous point, and collaborate using Github.">
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content="git github jekyll blog tutorial">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://adamwalz.net">
+  <link rel="canonical" href="http://adamwalz.net/blog/2014/08/24/blogging-with-jekyll-and-linode-part-2-git">
   <link href="/atom.xml" rel="alternate" title="Swarm Intelligence - Adam Walz's Blog and Portfolio" type="application/atom+xml">
   <link rel="icon" href="/assets/favicon/favicon-ab52fad7b8f4b81e70b5a24eee4525c0.ico">
 <!--[if IE]><link rel="shortcut icon" href="/assets/favicon/favicon-ab52fad7b8f4b81e70b5a24eee4525c0.ico"><![endif]-->
@@ -133,17 +133,13 @@
 
     <div class="container" id="main">
       <div id="content">
-        <article role="article">
+        <article class="hentry" role="article">
   
-  <div id="blog-index">
-  
-  
-    <article>
-      
 
-  <div class="row">
-    <div class="col-sm-3 col-lg-2">
-      <h5 class="date-time">
+  <header>
+    <div class="post-title" role="banner">
+      <h1>Blogging With Jekyll and Linode Part 2: Git and Github<h1>
+      <h5>
 
 
 
@@ -152,25 +148,10 @@
 
 
 <i class="fa fa-calendar-o"></i> <time datetime="2014-08-24T11:52:36-07:00"  data-updated="true">24 Aug 2014</time></h5>
-
-      
-        <a href="http://adamwalz.net/blog/2014/08/24/blogging-with-jekyll-and-linode-part-2-git/#disqus_thread">Comments </a>
-        <span class="fui-bubble-16"></span>
-      
-
-      
-        
-          <a href="/categories/blogging/"><span class="badge">blogging</span></a>
-        
-      
-    </div> <!-- end .col-sm-3 .col-lg-2 -->
-
-    <div class="col-sm-9 col-lg-10">
-      <h1 class="link">
-        <a href="/blog/2014/08/24/blogging-with-jekyll-and-linode-part-2-git/">
-          Blogging With Jekyll and Linode Part 2: Git and Github
-        </a>
-      </h1>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-sm-12">
       <h1 id="part-2-git-and-github">Part 2: Git and Github</h1>
 
 <p>Everyone has experience writing a paper, getting 10 pages in a having your word processor crash. That feeling of so much work lost and frantically attempting to get it back either by computational luck or sheer force of human memory.</p>
@@ -181,211 +162,287 @@
 
 <p><img src="/assets/images/posts/blogging_with_jekyll/git/git_logo-350x146-ad2d97.png" class="img-responsive center-block" alt="Git logo" /></p>
 
+<h2 id="installing-git">Installing Git</h2>
 
-      
-        
-        <a href="/blog/2014/08/24/blogging-with-jekyll-and-linode-part-2-git/">Read on &rarr;</a>
-      
-    </div> <!-- end .col-sm-9 .col-lg-10 -->
-  </div> <!-- end .row -->
+<p>On OS X Mavericks, Git is not installed by default, but Apple makes it simple to install using the Xcode command line tools. Run any git command to see if you have it, I like to do this by checking the version number.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
 
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git --version
+git version 1.9.3 <span class="o">(</span>Apple Git-50<span class="o">)</span></code></pre></div>
 
+<p>If you see any output from this command, then you’re all set; the particular version is not important for anything in this post. Otherwise, a window would have appeared asking to install the command line tools. Click install.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> If all else fails see the official <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Installing Git</a> page for more help.</p>
 
-    </article>
-    
-      <hr>
-    
-  
-    <article>
-      
+<h2 id="setting-up-git">Setting up Git</h2>
 
-  <div class="row">
-    <div class="col-sm-3 col-lg-2">
-      <h5 class="date-time">
+<p>Git is incredibly easy to add to any project; so easy in fact that I often add it to every folder I create, even if I don’t think I’ll be needing any source control. To add Git to your blog project, navigate to the <strong>root directory</strong> of your site, and type <code>git init</code></p>
 
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git init
+Initialized empty Git repository <span class="k">in</span> ~/Developer/blog/.git/</code></pre></div>
 
+<p>That’s it. You can verify that this was done correctly by using the <code>status</code> command.</p>
 
-  
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git status
+On branch master
 
+Initial commit
 
+nothing to commit</code></pre></div>
 
-<i class="fa fa-calendar-o"></i> <time datetime="2014-04-26T20:21:57-07:00"  data-updated="true">26 Apr 2014</time></h5>
+<h2 id="working-with-git">Working with Git</h2>
 
-      
-        <a href="http://adamwalz.net/blog/2014/04/26/blogging-with-jekyll-and-linode-part-1-jekyll/#disqus_thread">Comments </a>
-        <span class="fui-bubble-16"></span>
-      
+<p>Here is where things may start to get interesting. When you first initialize git at the root of your project directory, the files in the directory are not automatically saved. The initialization command creates what is known as a <em>repository</em> and files that are <strong>committed</strong> to the repository are saved. At this point you haven’t yet added any files to the repository.</p>
 
-      
-        
-          <a href="/categories/blogging/"><span class="badge">blogging</span></a>
-        
-      
-    </div> <!-- end .col-sm-3 .col-lg-2 -->
+<p>The following image shows the life cycle of files in git terminology. The arrows show how the commands <code>git add</code> and <code>git commit</code> affect the tracking state of a file.</p>
 
-    <div class="col-sm-9 col-lg-10">
-      <h1 class="link">
-        <a href="/blog/2014/04/26/blogging-with-jekyll-and-linode-part-1-jekyll/">
-          Blogging With Jekyll and Linode Part 1: Jekyll
-        </a>
-      </h1>
-      <h1 id="part-1-jekyll">Part 1: Jekyll</h1>
-<p>This is the first post in a multi-part series on creating a new blog from scratch in Jekyll and hosting it yourself with Linode and nginx. In this series I will walk the reader through the creation of <em>this</em> blog from first typing <code>jekyll new</code> to its current state.</p>
+<p><img src="/assets/images/posts/blogging_with_jekyll/git/git_lifecycle-350x292-a1eef5.png" class="img-responsive center-block" alt="Git lifecycle" /></p>
 
-<p>Jekyll was described by its creator Tom Preston-Werner, co-founder of Github, as “blogging like a hacker”. I received my degree is Computer Science and am currently working as a full-time developer, but I certainly don’t believe you need to have a theoretical CS background to use Jekyll. I will try my best to go through each step in my process with the most minimal assumptions possible.</p>
+<ul>
+  <li><strong>Untracked</strong> files are those that have been created on your local computer, but git is not saving tracking the history of changes to those files.</li>
+  <li><strong>Staging Area</strong> contains files that are about to be committed to git</li>
+  <li><strong>Git Repository</strong> contains every committed change that you have made to your project</li>
+  <li><strong>Working Directory</strong> contains the files that have been modified since the last commit</li>
+</ul>
 
-<p>Along the way we will touch on the tools of the trade such as git, ruby, nginx, the terminal, text editors, and networking. If I miss a key area along the way and you’d like me to write about it, please leave a comment.</p>
+<p>This is more concretely shown with an example of git in action. After using <code>git init</code> to initialize a git repository in an empty directory on your computer, we’ll add some files.</p>
 
-<p>tl;dr? Jump ahead to the <a href="#create-your-own">tutorial</a></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"This is some text in a file named foo.txt"</span> &gt; foo.txt
+<span class="nb">echo</span> <span class="s2">"This is some text in a file named bar.txt"</span> &gt; bar.txt
+mkdir folder1
+mkdir folder2
+<span class="nb">echo</span> <span class="s2">"This is some text in a file named folder1/baz.txt"</span> &gt; folder1/baz.txt</code></pre></div>
 
-<h2 id="what-is-jekyll-and-when-not-to-use-it">What is Jekyll (and when not to use it)</h2>
+<p>At this point you have created a three files and two directories. The file baz.txt is inside the directory named <em>folder1</em> and the directory named <em>folder2</em> is empty. To see the state our files now, run <code>git status</code> again.</p>
 
-<p><img src="/assets/images/posts/blogging_with_jekyll/jekyll/logo-350x162-f38998.png" class="img-responsive center-block" alt="Jekyll logo" /></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git status
+<span class="c"># On branch master</span>
+<span class="c">#</span>
+<span class="c"># Initial commit</span>
+<span class="c">#</span>
+<span class="c"># Untracked files:</span>
+<span class="c">#   bar.txt</span>
+<span class="c">#   folder1/</span>
+<span class="c">#   foo.txt</span>
+nothing added to commit but untracked files present</code></pre></div>
 
-<p>Jekyll is a static site generator that serves as a file-based content management system for websites (usually blogs, but not necessarily). This description has two main keywords: <strong>static</strong> and <strong>generator</strong>.</p>
+<p>This shows that <em>foo.txt</em>, <em>bar.txt</em>, and <em>folder1</em> are in the <strong>untracked</strong> state. You may be asking why <em>folder2</em> is not also untracked. Git only tracks file changes, so since <em>folder2</em> is empty, it cannot be tracked.</p>
 
+<h3 id="staging-area">Staging Area</h3>
+<p>As the git life cycle image shows, to move files from untracked to the staging area run <code>git add</code>. Lets do this for <em>foo.txt</em> and <em>folder1</em>.</p>
 
-      
-        
-        <a href="/blog/2014/04/26/blogging-with-jekyll-and-linode-part-1-jekyll/">Read on &rarr;</a>
-      
-    </div> <!-- end .col-sm-9 .col-lg-10 -->
-  </div> <!-- end .row -->
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git add foo.txt folder1
+<span class="gp">$ </span>git status
+<span class="c"># On branch master</span>
+<span class="c">#</span>
+<span class="c"># Initial commit</span>
+<span class="c">#</span>
+<span class="c"># Changes to be committed:</span>
+<span class="c">#   new file:   folder1/baz.txt</span>
+<span class="c">#   new file:   foo.txt</span>
+<span class="c">#</span>
+<span class="c"># Untracked files:</span>
+<span class="c">#   bar.txt</span></code></pre></div>
 
+<p>This added <em>foo.txt</em> and every file in the directory <em>folder1</em> to the staging area as shown in the status output under “changes to be committed”. The file <em>bar.txt</em> was left untracked.</p>
 
+<h3 id="committing">Committing</h3>
+<p>Files in the staging area can now be committed to the git repository. Git commits are similar to pressing the ‘save’ button on a word processor, but include additional information about the author and the reason <em>why</em> the change is being committed. This is called the commit message, and every commit includes one. This message can be added on the command line with the <code>-m</code> flag followed by a quoted message.</p>
 
-    </article>
-    
-      <hr>
-    
-  
-    <article>
-      
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git commit -m <span class="s2">"Add example on committing a file and a folder"</span>
+<span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> b022d5f] Add example on committing a file and a folder
+ 2 files changed, 2 insertions<span class="o">(</span>+<span class="o">)</span>
+ create mode 100644 folder1/baz.txt
+ create mode 100644 foo.txt
+<span class="gp">$ </span>git status
+<span class="c"># On branch master</span>
+<span class="c"># Untracked files:</span>
+<span class="c">#   bar.txt</span>
+nothing added to commit but untracked files present</code></pre></div>
 
-  <div class="row">
-    <div class="col-sm-3 col-lg-2">
-      <h5 class="date-time">
+<h3 id="modifying-files">Modifying files</h3>
+<p>Additional changes may be needed in the files we committed to our git repository. Use any text editor the change a word in the file <em>foo.txt</em>. In this example I have chosen to change the word “some” to “new”.</p>
 
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>less foo.txt
+This is new text <span class="k">in </span>a file named foo.txt
+<span class="gp">$ </span>git status
+<span class="c"># On branch master</span>
+<span class="c"># Changes not staged for commit:</span>
+<span class="c">#   modified:   foo.txt</span>
+<span class="c">#</span>
+<span class="c"># Untracked files:</span>
+<span class="c">#   bar.txt</span>
+no changes added to commit</code></pre></div>
 
+<p>The modified file has been added to the <strong>working directory</strong> state and shows in <code>git status</code> as “modified:”. We have seen how to add a file to the staging area and then commit it to the git repository with a commit message. If we want to do all of these steps at the same time, the <code>-a</code> flag commits everything that is currently in the <strong>working directory</strong> or <strong>staging area</strong>.</p>
 
-  
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git commit -a -m <span class="s2">"Change word in foo"</span>
+<span class="o">[</span>master a5efbe7] Change word <span class="k">in </span>foo
+ 1 file changed, 1 insertion<span class="o">(</span>+<span class="o">)</span>, 1 deletion<span class="o">(</span>-<span class="o">)</span></code></pre></div>
 
+<p>Notice in the output of this command where it says 1 insertion and 1 deletion. When a file is committed to git, only the <em>differences</em> are tracked. This commit contained a deletion of the word “some” and an insertion of the word “new”. If the file is very large this is an important distinction because it means commits are very light weight and do not require full copies of all the changed files.</p>
 
+<h3 id="viewing-history">Viewing history</h3>
+<p>Too see the changes your have made over time, the <code>git log</code> command will show you a list of all commits ever made to this repository.</p>
 
-<i class="fa fa-calendar-o"></i> <time datetime="2013-10-31T16:11:56-07:00"  data-updated="true">31 Oct 2013</time></h5>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git log
+commit a5efbe706e4e1334079320d8487e34ed040369de
+Author: Adam Walz &lt;adam@adamwalz.net&gt;
+Date:   Sun Aug 24 01:28:15 2014 -0700
 
-      
-        <a href="http://adamwalz.net/blog/2013/10/31/why-use-zocdoc/#disqus_thread">Comments </a>
-        <span class="fui-bubble-16"></span>
-      
+    Change word <span class="k">in </span>foo
 
-      
-        
-          <a href="/categories/reviews/"><span class="badge">reviews</span></a>
-        
-      
-    </div> <!-- end .col-sm-3 .col-lg-2 -->
+commit b022d5f574f5c509b9e224754f5579b44fff54d2
+Author: Adam Walz &lt;adam@adamwalz.net&gt;
+Date:   Sun Aug 24 01:17:05 2014 -0700
 
-    <div class="col-sm-9 col-lg-10">
-      <h1 class="link">
-        <a href="/blog/2013/10/31/why-use-zocdoc/">
-          Why I Use ZocDoc to Find and Schedule Great Doctors
-        </a>
-      </h1>
-      <p><span class="has-pullquote" data-pullquote="you wouldn’t want to hear anyone making that call ">
-I first heard about <a href="http://www.zocdoc.com/">ZocDoc</a> from their episode of <a href="http://www.theverge.com/2013/7/30/4570858/small-empires-001-zocdoc">Small Empires</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>. ZocDoc is a service which allows patients to unite with doctors in a way that allows patients to view ratings, read reviews, and schedule appointments all from the comfort of their laptop. Founder and CEO Cyrus Massoumi put it very practically, if not eloquently, when he said “If you had a rash on your butt, you [would] come to our site, <strong>A.</strong> because you wouldn’t want to hear anyone making that call, and <strong>B.</strong> it might be after 6 o’clock [and the] doctor’s office isn’t open.”
-</span></p>
+    Add example on committing a file and a folder</code></pre></div>
 
-<p>For me though, I am going to be moving to California in the coming months, I’ll be on a new healthcare plan and will be needing to find a completely new set of doctors, dentists, optometrists, etc. Luckily, ZocDoc has a list of the “Wellness Recommendation” steps for new users.</p>
+<h2 id="github">Github</h2>
 
-<p><img src="/assets/images/posts/zocdoc/recommendations-350x414-b2a244.png" class="img-responsive center-block" alt="recommendations" /></p>
+<p>So far we have used the git source control system to track the history of project changes on your local computer. However, if you want to work with other people on the same project, or even by yourself on multiple computers, you’ll want to create a remote copy of your git repository to share. This is where the site <a href="http://github.com">github.com</a> comes in.</p>
+
+<p>Github is web hosting service and interface for git repositories. It can store an entire copy of your project so you can share it with others, download it to multiple computers, view the history online, and rest easy knowing your project is backed up remotely.</p>
+
+<h3 id="creating-a-new-repository">Creating a new repository</h3>
+<p>Once you have set up a github account, click the <a href="github.com/new">+ New repository</a> link. Add a repository name and description, but leave the box for “Initialize this repository with a README” unchecked because we will be using our previous example which has already been initialized.</p>
+
+<p><img src="/assets/images/posts/blogging_with_jekyll/git/github_new_repository-600x344-09b237.png" class="img-responsive center-block" alt="Creating a new github repository" /></p>
+
+<h3 id="pushing-to-github">Pushing to github</h3>
+<p>Back in the terminal we need to add the address to our github repository as a <em>remote repository</em>. It is convention to name this remote <strong>origin</strong>. Change the example to use your own github username instead of <em>adamwalz</em> and the name of the repository you created on github instead of <em>myProject</em></p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git remote add origin git@github.com:adamwalz/myProject.git</code></pre></div>
+
+<p>The terms <em>Pushing</em> and <em>Pulling</em> refer to uploading/downloading from a remote git repository. At this point our local repository contains commits that our remote repository does not have, so those need to be <em>pushed</em> to the remote. I will not be covering branches in this post, but the name <strong>master</strong> refers to the git branch in which you are using. If you have not created multiple branches, <strong>master</strong> is the default.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># push to the remote repository named origin on branch master</span>
+<span class="gp">$ </span>git push origin master</code></pre></div>
+
+<h2 id="getting-the-latest-changes">Getting the latest changes</h2>
+<p>If you are working with a team, or from multiple computers, the commits on github may be more recent than the ones on your local computer. We need to synchronize with those changes.</p>
+
+<p>When starting fresh on a new computer, we need to get the entire repository from github. This is called <em>cloning</em>. We will pretend you are starting fresh and clone to a new directory on your Desktop.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd</span> ~/Desktop
+<span class="gp">$ </span>git clone git@github.com:adamwalz/myProject.git myLocalProject
+Cloning into <span class="s1">'myLocalProject'</span>...
+remote: Counting objects: 8, <span class="k">done</span>.
+remote: Compressing objects: 100% <span class="o">(</span>5/5<span class="o">)</span>, <span class="k">done</span>.
+remote: Total 8 <span class="o">(</span>delta 0<span class="o">)</span>, reused 8 <span class="o">(</span>delta 0<span class="o">)</span>
+Receiving objects: 100% <span class="o">(</span>8/8<span class="o">)</span>, <span class="k">done</span>.
+Checking connectivity... <span class="k">done</span></code></pre></div>
+
+<p>This created a new directory named <em>myLocalProject</em> that contains a copy of the entire git repository and knows about the remote repository on github. You can make changes in this working directory, and when they are ready you’ll need to <code>git add</code>, <code>git commit</code>, and <code>git push</code> to send the changes to github.</p>
+
+<p>If there are recent changes on github that you want to download, running <code>git pull</code> will merge those changes into your own local repository.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd</span> ~/Desktop/myLocalProject
+<span class="gp">$ </span>git pull
+Already up-to-date.</code></pre></div>
+
+<h2 id="getting-help">Getting Help</h2>
+<p>Github has an excellent set of answers to common issues about using git and github at <a href="https://help.github.com">help.github.com</a>. The <a href="http://git-scm.com">git website</a> also has in depth documentation and a really cool browser based git walk-through system for learning step by step. Even advanced users can pick something up through this site.</p>
+
+<p>Finally, if any of the examples or discussion I have provided is not helpful, let me know in the comments.</p>
+
+<h3 id="footnotes">Footnotes</h3>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>Actually thats not true, I applied there as a developer a couple years ago, but never heard back :( Oh well, they seem to be doing well without me <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>The dollar sign often signifies the command prompt in your terminal. I use it in that way to show what <em>you</em> should type. When there is no dollar sign before a line in the code block, don’t type it. That line signifies what the <em>output</em> of the previous command is. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>This will work on OS X 10.9 Mavericks, but may not on other versions of mac. It will definitely not work on any other platform, so see the <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">git website</a> for help. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
-      
-        
-        <a href="/blog/2013/10/31/why-use-zocdoc/">Read on &rarr;</a>
-      
-    </div> <!-- end .col-sm-9 .col-lg-10 -->
+    </div>
   </div> <!-- end .row -->
 
 
-
-    </article>
-    
-      <hr>
-    
-  
-    <article>
-      
-
-  <div class="row">
-    <div class="col-sm-3 col-lg-2">
-      <h5 class="date-time">
-
-
-
-  
-
-
-
-<i class="fa fa-calendar-o"></i> <time datetime="2013-07-13T00:00:00-07:00"  data-updated="true">13 Jul 2013</time></h5>
-
-      
-        <a href="http://adamwalz.net/blog/2013/07/13/excellent-adventure/#disqus_thread">Comments </a>
-        <span class="fui-bubble-16"></span>
-      
-
-      
-        
-      
-    </div> <!-- end .col-sm-3 .col-lg-2 -->
-
-    <div class="col-sm-9 col-lg-10">
-      <h1 class="link">
-        <a href="/blog/2013/07/13/excellent-adventure/">
-          A Most Excellent Adventure
-        </a>
-      </h1>
-      <h3 id="why-im-writing-this-blog">Why I’m writing this blog</h3>
-
-<p>Let me first say, welcome to my new blog!</p>
-
-<p>I’ve been thinking for a while about what I should write as my first post. I didn’t want to get right down into technical discussions to start out, and I didn’t want it to be some random one-off that will go down as the milestone first post.</p>
-
-<p>So I’ve decided an introduction is in order to explain why I am writing this blog, and what the reader and myself will hopefully get out of my writing of it.</p>
-
-<p>I recently graduated from the University of Utah with a degree in computer science, but as I get out into the world of professional programming I realize I still am a complete student. I rather like it that way. In this field if you are not constantly learning you will certainly be left behind. With the speed that technology is evolving you will be left behind much more quickly than in other fields. So with this view of myself as a perceptual student, I wanted to take the reader along as I document my journey toward professional and personal enlightenment.</p>
-
-
-      
-        
-        <a href="/blog/2013/07/13/excellent-adventure/">Read on &rarr;</a>
-      
-    </div> <!-- end .col-sm-9 .col-lg-10 -->
-  </div> <!-- end .row -->
-
-
-
-    </article>
-    
-  
-
-  <div class="pagination">
-    
-
-    
-  </div> <!-- end .pagination -->
-</div> <!-- end #blog-index -->
 
 </article>
+<footer>
+ <hr>
+ 
+   <div class="row">
 
+     
+       <div class="col-sm-6">
+         <p class="meta">
+           
+           
+
+
+  
+    <a href="/categories/blogging/"><span class="badge">blogging</span></a>
+  
+
+
+         </p>
+       </div>
+
+       
+         <div class="col-sm-6 social-sharing">
+           
+  <div class="sharing">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+      
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+      
+      
+        <a class="addthis_button_tweet"></a>
+      
+      
+        <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+      
+
+      <a class="addthis_button_evernote"></a>
+      <a class="addthis_button_pocket"></a>
+      <a class="addthis_button_hackernews"></a>
+      <a class="addthis_button_reddit"></a>
+
+      <a class="addthis_button_compact"></a>
+      <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript">var addthis_config =
+      {
+        data_track_addressbar: false
+      };
+    </script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52bf43f876c34f5f"></script>
+  </div> <!-- end .sharing -->
+
+
+         </div>
+       
+
+     
+
+   </div> <!-- end .row -->
+ 
+
+ <div class="row">
+   <div class="col-sm-12">
+     <p class="meta">
+       
+         <a class="basic-alignment left" href="/blog/2014/04/26/blogging-with-jekyll-and-linode-part-1-jekyll/" title="Previous Post: Blogging with Jekyll and Linode Part 1: Jekyll">&laquo; Blogging with Jekyll and Linode Part 1: Jekyll</a>
+       
+       
+     </p>
+   </div> <!-- end .col-sm-12 -->
+ </div> <!-- end .row -->
+
+</footer>
+
+
+
+
+  <section>
+    <header><h1>Comments</h1><header>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 
       </div>
@@ -409,7 +466,8 @@ I first heard about <a href="http://www.zocdoc.com/">ZocDoc</a> from their episo
   <script type="text/javascript">
     var disqus_shortname = 'SwarmIntelligence';
     
-      var disqus_script = 'count.js';
+      var disqus_identifier = '/blog/2014/08/24/blogging-with-jekyll-and-linode-part-2-git/';
+      var disqus_script = 'embed.js';
     
 
     (function () {

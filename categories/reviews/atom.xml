@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: reviews | Swarm Intelligence - Adam Walz's Blog and Portfolio]]></title>
+  <link href="http://adamwalz.net/categories/reviews/atom.xml" rel="self"/>
+  <link href="http://adamwalz.net/"/>
+  <updated>2015-03-27T01:17:59-07:00</updated>
+  <id>http://adamwalz.net/</id>
+  <author>
+    <name><![CDATA[Adam Walz]]></name>
+    <email><![CDATA[adam@adamwalz.net]]></email>
+  </author>
+  <generator uri="http://jekyllrb.com/">Jekyll</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why I Use ZocDoc to Find and Schedule Great Doctors]]></title>
+    <link href="http://adamwalz.net/blog/2013/10/31/why-use-zocdoc/"/>
+    <updated>2013-10-31T16:11:56-07:00</updated>
+    <id>http://adamwalz.net/blog/2013/10/31/why-use-zocdoc</id>
+    <content type="html"><![CDATA[<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<p>For me though, I am going to be moving to California in the coming months, I’ll be on a new healthcare plan and will be needing to find a completely new set of doctors, dentists, optometrists, etc. Luckily, ZocDoc has a list of the “Wellness Recommendation” steps for new users.</p>
+
+<p><img src="/assets/images/posts/zocdoc/recommendations-350x414-b2a244.png" class="img-responsive center-block" alt ”recommendations” ></p>
+
+<p>The first recommendation of course is “Sign Up for ZocDoc”, but the other four consist of a checklist of procedures such as an annual physical and dental cleaning. It was simple to click on each link and be taken to a list of dentists sorted both by distance from your house or work as well as ratings by other patients. The list is even filtered by your insurance provider and plan, so you can be assured you won’t be paying out-of-network when you get to the office.</p>
+
+<p>From there you can easily see which appointment slots the doctor has available, many of which are same-day appointments. I wanted to schedule mine well in advance, but I know the day will come when I NEED and appointment NOW, and I can see this as being a lifesaver<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> when I’m sick.</p>
+
+<p>When I made my appointments they automatically can be added to your Google or iCal calendars, as well as have reminder text messages sent out a few days beforehand, and if I ever need to reschedule its as easy as a click of a button.</p>
+
+<p>Before ZocDoc, my history of going to the doctor, or heaven forbid… the dentist, was less than stellar. Since scheduling is moved to software in ZocDoc, the system can remind me the next time I need to go in for an appointment. Its like the oil change sticker in your car which, Oh I never do either, but in this case instead of driving all the way to Jiffy Lube and then waiting with a styrofoam cup of stale coffee, the feedback loop between getting the reminder and having your appointment scheduled is just a simple button in your email.</p>
+
+<p><img src="/assets/images/posts/zocdoc/book_again-111x27-a127f3.png" class="img-responsive center-block" alt ”Book Again” ></p>
+
+<p>I don’t think I will ever again see a doctor who doesn’t use ZocDoc, not only is it easier on me as patient to quickly make an appointment and find a new physician, but being able to use the simplest of technology is, in my mind, a basic prerequisite for the doctors I choose.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Actually thats not true, I applied there as a developer a couple years ago, but never heard back :( Oh well, they seem to be doing well without me <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Hopefully an exaggeration <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
+  
+</feed>

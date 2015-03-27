@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Swarm Intelligence - Adam Walz's Blog and Portfolio]]></title>
-  <link href="http://adamwalz.net/atom.xml" rel="self"/>
+  <title><![CDATA[Category: blogging | Swarm Intelligence - Adam Walz's Blog and Portfolio]]></title>
+  <link href="http://adamwalz.net/categories/blogging/atom.xml" rel="self"/>
   <link href="http://adamwalz.net/"/>
   <updated>2015-03-27T01:17:59-07:00</updated>
   <id>http://adamwalz.net/</id>
@@ -26,14 +26,14 @@
 
 <p>This is where Git comes in. Git is a version control system that allows you to save snapshots of your work quickly, and revert to any save point you’ve ever created. It goes much further than a save button however, enabling you to snapshot portions of your latest work, collaborate with others who are simultaneously working on the project, remembering/explaining <em>why</em> the change was made, finding out who changed a particular line in the project, and backing up your project remotely.</p>
 
-<p><img src="/assets/images/posts/blogging_with_jekyll/git/git_logo-350x146-ad2d97.png" class="img-responsive center-block" alt="Git logo" /></p>
+<p><img src="/assets/images/posts/blogging_with_jekyll/git/git_logo-350x146-ad2d97.png" class="img-responsive center-block" alt ”Git logo” ></p>
 
 <h2 id="installing-git">Installing Git</h2>
 
 <p>On OS X Mavericks, Git is not installed by default, but Apple makes it simple to install using the Xcode command line tools. Run any git command to see if you have it, I like to do this by checking the version number.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git --version
-git version 1.9.3 <span class="o">(</span>Apple Git-50<span class="o">)</span></code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git –version
+git version 1.9.3 <span class="o">(</span>Apple Git-50<span class="o">)</span></code></pre></div></p>
 
 <p>If you see any output from this command, then you’re all set; the particular version is not important for anything in this post. Otherwise, a window would have appeared asking to install the command line tools. Click install.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> If all else fails see the official <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Installing Git</a> page for more help.</p>
 
@@ -41,17 +41,17 @@ git version 1.9.3 <span class="o">(</span>Apple Git-50<span class="o">)</span></
 
 <p>Git is incredibly easy to add to any project; so easy in fact that I often add it to every folder I create, even if I don’t think I’ll be needing any source control. To add Git to your blog project, navigate to the <strong>root directory</strong> of your site, and type <code>git init</code></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git init
-Initialized empty Git repository <span class="k">in</span> ~/Developer/blog/.git/</code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git init
+Initialized empty Git repository <span class="k">in</span> ~/Developer/blog/.git/</code></pre></div></p>
 
 <p>That’s it. You can verify that this was done correctly by using the <code>status</code> command.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git status
-On branch master
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git status
+On branch master&lt;/p&gt;
 
-Initial commit
+&lt;p&gt;Initial commit&lt;/p&gt;
 
-nothing to commit</code></pre></div>
+&lt;p&gt;nothing to commit</code></pre></div></p>
 
 <h2 id="working-with-git">Working with Git</h2>
 
@@ -59,7 +59,7 @@ nothing to commit</code></pre></div>
 
 <p>The following image shows the life cycle of files in git terminology. The arrows show how the commands <code>git add</code> and <code>git commit</code> affect the tracking state of a file.</p>
 
-<p><img src="/assets/images/posts/blogging_with_jekyll/git/git_lifecycle-350x292-a1eef5.png" class="img-responsive center-block" alt="Git lifecycle" /></p>
+<p><img src="/assets/images/posts/blogging_with_jekyll/git/git_lifecycle-350x292-a1eef5.png" class="img-responsive center-block" alt ”Git lifecycle” ></p>
 
 <ul>
   <li><strong>Untracked</strong> files are those that have been created on your local computer, but git is not saving tracking the history of changes to those files.</li>
@@ -70,15 +70,15 @@ nothing to commit</code></pre></div>
 
 <p>This is more concretely shown with an example of git in action. After using <code>git init</code> to initialize a git repository in an empty directory on your computer, we’ll add some files.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"This is some text in a file named foo.txt"</span> &gt; foo.txt
-<span class="nb">echo</span> <span class="s2">"This is some text in a file named bar.txt"</span> &gt; bar.txt
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> “This is some text <span class="k">in </span>a file named foo.txt” &amp;gt; foo.txt
+<span class="nb">echo</span> “This is some text <span class="k">in </span>a file named bar.txt” &amp;gt; bar.txt
 mkdir folder1
 mkdir folder2
-<span class="nb">echo</span> <span class="s2">"This is some text in a file named folder1/baz.txt"</span> &gt; folder1/baz.txt</code></pre></div>
+<span class="nb">echo</span> “This is some text <span class="k">in </span>a file named folder1/baz.txt” &amp;gt; folder1/baz.txt</code></pre></div></p>
 
 <p>At this point you have created a three files and two directories. The file baz.txt is inside the directory named <em>folder1</em> and the directory named <em>folder2</em> is empty. To see the state our files now, run <code>git status</code> again.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git status
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git status
 <span class="c"># On branch master</span>
 <span class="c">#</span>
 <span class="c"># Initial commit</span>
@@ -87,14 +87,14 @@ mkdir folder2
 <span class="c">#   bar.txt</span>
 <span class="c">#   folder1/</span>
 <span class="c">#   foo.txt</span>
-nothing added to commit but untracked files present</code></pre></div>
+nothing added to commit but untracked files present</code></pre></div></p>
 
 <p>This shows that <em>foo.txt</em>, <em>bar.txt</em>, and <em>folder1</em> are in the <strong>untracked</strong> state. You may be asking why <em>folder2</em> is not also untracked. Git only tracks file changes, so since <em>folder2</em> is empty, it cannot be tracked.</p>
 
 <h3 id="staging-area">Staging Area</h3>
 <p>As the git life cycle image shows, to move files from untracked to the staging area run <code>git add</code>. Lets do this for <em>foo.txt</em> and <em>folder1</em>.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git add foo.txt folder1
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git add foo.txt folder1
 <span class="gp">$ </span>git status
 <span class="c"># On branch master</span>
 <span class="c">#</span>
@@ -105,14 +105,14 @@ nothing added to commit but untracked files present</code></pre></div>
 <span class="c">#   new file:   foo.txt</span>
 <span class="c">#</span>
 <span class="c"># Untracked files:</span>
-<span class="c">#   bar.txt</span></code></pre></div>
+<span class="c">#   bar.txt</span></code></pre></div></p>
 
 <p>This added <em>foo.txt</em> and every file in the directory <em>folder1</em> to the staging area as shown in the status output under “changes to be committed”. The file <em>bar.txt</em> was left untracked.</p>
 
 <h3 id="committing">Committing</h3>
 <p>Files in the staging area can now be committed to the git repository. Git commits are similar to pressing the ‘save’ button on a word processor, but include additional information about the author and the reason <em>why</em> the change is being committed. This is called the commit message, and every commit includes one. This message can be added on the command line with the <code>-m</code> flag followed by a quoted message.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git commit -m <span class="s2">"Add example on committing a file and a folder"</span>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git commit -m “Add example on committing a file and a folder”
 <span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> b022d5f] Add example on committing a file and a folder
  2 files changed, 2 insertions<span class="o">(</span>+<span class="o">)</span>
  create mode 100644 folder1/baz.txt
@@ -121,12 +121,12 @@ nothing added to commit but untracked files present</code></pre></div>
 <span class="c"># On branch master</span>
 <span class="c"># Untracked files:</span>
 <span class="c">#   bar.txt</span>
-nothing added to commit but untracked files present</code></pre></div>
+nothing added to commit but untracked files present</code></pre></div></p>
 
 <h3 id="modifying-files">Modifying files</h3>
 <p>Additional changes may be needed in the files we committed to our git repository. Use any text editor the change a word in the file <em>foo.txt</em>. In this example I have chosen to change the word “some” to “new”.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>less foo.txt
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>less foo.txt
 This is new text <span class="k">in </span>a file named foo.txt
 <span class="gp">$ </span>git status
 <span class="c"># On branch master</span>
@@ -135,31 +135,33 @@ This is new text <span class="k">in </span>a file named foo.txt
 <span class="c">#</span>
 <span class="c"># Untracked files:</span>
 <span class="c">#   bar.txt</span>
-no changes added to commit</code></pre></div>
+no changes added to commit</code></pre></div></p>
 
 <p>The modified file has been added to the <strong>working directory</strong> state and shows in <code>git status</code> as “modified:”. We have seen how to add a file to the staging area and then commit it to the git repository with a commit message. If we want to do all of these steps at the same time, the <code>-a</code> flag commits everything that is currently in the <strong>working directory</strong> or <strong>staging area</strong>.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git commit -a -m <span class="s2">"Change word in foo"</span>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git commit -a -m “Change word <span class="k">in </span>foo”
 <span class="o">[</span>master a5efbe7] Change word <span class="k">in </span>foo
- 1 file changed, 1 insertion<span class="o">(</span>+<span class="o">)</span>, 1 deletion<span class="o">(</span>-<span class="o">)</span></code></pre></div>
+ 1 file changed, 1 insertion<span class="o">(</span>+<span class="o">)</span>, 1 deletion<span class="o">(</span>-<span class="o">)</span></code></pre></div></p>
 
 <p>Notice in the output of this command where it says 1 insertion and 1 deletion. When a file is committed to git, only the <em>differences</em> are tracked. This commit contained a deletion of the word “some” and an insertion of the word “new”. If the file is very large this is an important distinction because it means commits are very light weight and do not require full copies of all the changed files.</p>
 
 <h3 id="viewing-history">Viewing history</h3>
 <p>Too see the changes your have made over time, the <code>git log</code> command will show you a list of all commits ever made to this repository.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git log
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git log
 commit a5efbe706e4e1334079320d8487e34ed040369de
-Author: Adam Walz &lt;adam@adamwalz.net&gt;
-Date:   Sun Aug 24 01:28:15 2014 -0700
+Author: Adam Walz &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">"&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#064;&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#119;&amp;#097;&amp;#108;&amp;#122;&amp;#046;&amp;#110;&amp;#101;&amp;#116;"</span>&gt;&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#064;&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#119;&amp;#097;&amp;#108;&amp;#122;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;
+Date:   Sun Aug 24 01:28:15 2014 -0700&lt;/p&gt;
 
-    Change word <span class="k">in </span>foo
+&lt;pre&gt;&lt;code&gt;Change word <span class="k">in </span>foo
+&lt;/code&gt;&lt;/pre&gt;
 
-commit b022d5f574f5c509b9e224754f5579b44fff54d2
-Author: Adam Walz &lt;adam@adamwalz.net&gt;
-Date:   Sun Aug 24 01:17:05 2014 -0700
+&lt;p&gt;commit b022d5f574f5c509b9e224754f5579b44fff54d2
+Author: Adam Walz &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">"&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#064;&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#119;&amp;#097;&amp;#108;&amp;#122;&amp;#046;&amp;#110;&amp;#101;&amp;#116;"</span>&gt;&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#064;&amp;#097;&amp;#100;&amp;#097;&amp;#109;&amp;#119;&amp;#097;&amp;#108;&amp;#122;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;
+Date:   Sun Aug 24 01:17:05 2014 -0700&lt;/p&gt;
 
-    Add example on committing a file and a folder</code></pre></div>
+&lt;pre&gt;&lt;code&gt;Add example on committing a file and a folder</code></pre></div>
+</code></pre>
 
 <h2 id="github">Github</h2>
 
@@ -170,39 +172,39 @@ Date:   Sun Aug 24 01:17:05 2014 -0700
 <h3 id="creating-a-new-repository">Creating a new repository</h3>
 <p>Once you have set up a github account, click the <a href="github.com/new">+ New repository</a> link. Add a repository name and description, but leave the box for “Initialize this repository with a README” unchecked because we will be using our previous example which has already been initialized.</p>
 
-<p><img src="/assets/images/posts/blogging_with_jekyll/git/github_new_repository-600x344-09b237.png" class="img-responsive center-block" alt="Creating a new github repository" /></p>
+<p><img src="/assets/images/posts/blogging_with_jekyll/git/github_new_repository-600x344-09b237.png" class="img-responsive center-block" alt ”Creating a new github repository” ></p>
 
 <h3 id="pushing-to-github">Pushing to github</h3>
 <p>Back in the terminal we need to add the address to our github repository as a <em>remote repository</em>. It is convention to name this remote <strong>origin</strong>. Change the example to use your own github username instead of <em>adamwalz</em> and the name of the repository you created on github instead of <em>myProject</em></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git remote add origin git@github.com:adamwalz/myProject.git</code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git remote add origin git@github.com:adamwalz/myProject.git</code></pre></div></p>
 
 <p>The terms <em>Pushing</em> and <em>Pulling</em> refer to uploading/downloading from a remote git repository. At this point our local repository contains commits that our remote repository does not have, so those need to be <em>pushed</em> to the remote. I will not be covering branches in this post, but the name <strong>master</strong> refers to the git branch in which you are using. If you have not created multiple branches, <strong>master</strong> is the default.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># push to the remote repository named origin on branch master</span>
-<span class="gp">$ </span>git push origin master</code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># push to the remote repository named origin on branch master</span>
+<span class="gp">$ </span>git push origin master</code></pre></div></p>
 
 <h2 id="getting-the-latest-changes">Getting the latest changes</h2>
 <p>If you are working with a team, or from multiple computers, the commits on github may be more recent than the ones on your local computer. We need to synchronize with those changes.</p>
 
 <p>When starting fresh on a new computer, we need to get the entire repository from github. This is called <em>cloning</em>. We will pretend you are starting fresh and clone to a new directory on your Desktop.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd</span> ~/Desktop
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd</span> ~/Desktop
 <span class="gp">$ </span>git clone git@github.com:adamwalz/myProject.git myLocalProject
-Cloning into <span class="s1">'myLocalProject'</span>...
+Cloning into ‘myLocalProject’…
 remote: Counting objects: 8, <span class="k">done</span>.
 remote: Compressing objects: 100% <span class="o">(</span>5/5<span class="o">)</span>, <span class="k">done</span>.
 remote: Total 8 <span class="o">(</span>delta 0<span class="o">)</span>, reused 8 <span class="o">(</span>delta 0<span class="o">)</span>
 Receiving objects: 100% <span class="o">(</span>8/8<span class="o">)</span>, <span class="k">done</span>.
-Checking connectivity... <span class="k">done</span></code></pre></div>
+Checking connectivity… <span class="k">done</span></code></pre></div></p>
 
 <p>This created a new directory named <em>myLocalProject</em> that contains a copy of the entire git repository and knows about the remote repository on github. You can make changes in this working directory, and when they are ready you’ll need to <code>git add</code>, <code>git commit</code>, and <code>git push</code> to send the changes to github.</p>
 
 <p>If there are recent changes on github that you want to download, running <code>git pull</code> will merge those changes into your own local repository.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd</span> ~/Desktop/myLocalProject
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd</span> ~/Desktop/myLocalProject
 <span class="gp">$ </span>git pull
-Already up-to-date.</code></pre></div>
+Already up-to-date.</code></pre></div></p>
 
 <h2 id="getting-help">Getting Help</h2>
 <p>Github has an excellent set of answers to common issues about using git and github at <a href="https://help.github.com">help.github.com</a>. The <a href="http://git-scm.com">git website</a> also has in depth documentation and a really cool browser based git walk-through system for learning step by step. Even advanced users can pick something up through this site.</p>
@@ -240,7 +242,7 @@ Already up-to-date.</code></pre></div>
 
 <h2 id="what-is-jekyll-and-when-not-to-use-it">What is Jekyll (and when not to use it)</h2>
 
-<p><img src="/assets/images/posts/blogging_with_jekyll/jekyll/logo-350x162-f38998.png" class="img-responsive center-block" alt="Jekyll logo" /></p>
+<p><img src="/assets/images/posts/blogging_with_jekyll/jekyll/logo-350x162-f38998.png" class="img-responsive center-block" alt ”Jekyll logo” ></p>
 
 <p>Jekyll is a static site generator that serves as a file-based content management system for websites (usually blogs, but not necessarily). This description has two main keywords: <strong>static</strong> and <strong>generator</strong>.</p>
 
@@ -272,10 +274,12 @@ Already up-to-date.</code></pre></div>
 
 <p>When creating your own site, keep in mind that these files, know as <em>includes</em>, can be as long or as short as you want them to be. My rule of thumb is that if I am going to copy and paste one bit of code into two pages, use an include. For example, this is my entire <em>header.html</em> include file.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+<p><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
   Hi. I'm {{ site.author }}.
   <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"tagline"</span><span class="nt">&gt;</span>Here are some thoughts of mine.<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;p&gt;</span></code></pre></div></p>
 
 <h4 id="file-structure">File Structure</h4>
 
@@ -309,11 +313,11 @@ Already up-to-date.</code></pre></div>
 
 <p>Jekyll comes with two important tools for the creation of your site.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll build</code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll build</code></pre></div></p>
 
 <p><em>jekyll build</em> generates your site and places the generated HTML into the <em>_site</em> directory. When you are ready to deploy your site to the web, this is the directory you should copy onto your remote server<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll serve --watch</code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll serve –watch</code></pre></div></p>
 
 <p><em>jekyll serve</em> builds your site and allows you to preview what you are writing on your own computer, before it goes live to the web. After typing <em>jekyll serve</em>, simply open up a web browser and go to <code>http://localhost:4000</code></p>
 
@@ -325,41 +329,43 @@ Already up-to-date.</code></pre></div>
 
 <p>Since jekyll is written in the ruby programming language, we’ll use ruby-gems to install jekyll on your computer. Both ruby and ruby-gems are probably already available, but other than their availability, you don’t need to know much about them to get started.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>gem install jekyll</code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>gem install jekyll</code></pre></div></p>
 
 <p>Jekyll provides the scaffolding of your new website by default, and gives an easy way to create the necessary directory structure previously mentioned. Typing <em>jekyll new directory</em> will create all the folders needed to start a new site.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll new my-blog
-New jekyll site installed <span class="k">in</span> /Users/adamwalz/my-blog.</code></pre></div>
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>jekyll new my-blog
+New jekyll site installed <span class="k">in</span> /Users/adamwalz/my-blog.</code></pre></div></p>
 
 <p>And thats it. You have just created an entire site. Go into that directory and preview it with <em>jekyll serve</em> to see how it looks. After running the <em>jekyll serve</em> command, open a browser and go to <code>http://localhost:4000</code></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd </span>my-blog
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">cd </span>my-blog
 <span class="gp">$ </span>jekyll serve
 Configuration file: /Users/adamwalz/my-blog/_config.yml
             Source: /Users/adamwalz/my-blog
        Destination: /Users/adamwalz/my-blog/_site
-      Generating... <span class="k">done</span>.
+      Generating… <span class="k">done</span>.
     Server address: http://0.0.0.0:4000
-  Server running... press ctrl-c to stop.</code></pre></div>
+  Server running… press ctrl-c to stop.</code></pre></div></p>
 
-<p><img src="/assets/images/posts/blogging_with_jekyll/jekyll/jekyll_new-350x224-a6afe4.png" class="img-responsive center-block" alt="Jekyll new" /></p>
+<p><img src="/assets/images/posts/blogging_with_jekyll/jekyll/jekyll_new-350x224-a6afe4.png" class="img-responsive center-block" alt ”Jekyll new” ></p>
 
 <p>To start changing some of the default options, open <em>_config.yml</em> and edit the text after <code>name:</code> to change the title of the site. You can also start by editing these lines in <em>_layouts/default.html</em> to change the links in the footer of the site.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>
+<p><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://github.com/yourusername"</span><span class="nt">&gt;</span>github.com/yourusername<span class="nt">&lt;/a&gt;&lt;br</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://twitter.com/yourusername"</span><span class="nt">&gt;</span>twitter.com/yourusername<span class="nt">&lt;/a&gt;&lt;br</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span></code></pre></div></p>
 
 <p>Finally, the sample first blog post, written in Markdown is in <em>_posts/welcome-to-jekyll.markdown</em>. Opening that file in a text editor will give you a lot of insight into what markdown feels like, and how to add links and even a block of syntax-highlighted code. One thing in this file is unique to jekyll however, and not Markdown.</p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
-<span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
-<span class="s">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">Welcome</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Jekyll!"</span>
+<h2 id="highlight-yaml-"><div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">&lt;/h2&gt;</span>
+<span class="s">&lt;p&gt;layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="s">title</span><span class="pi">:</span>  <span class="s">“Welcome to Jekyll!”</span>
 <span class="s">date</span><span class="pi">:</span>   <span class="s">2014-04-26 19:06:39</span>
 <span class="s">categories</span><span class="pi">:</span> <span class="s">jekyll update</span>
-<span class="nn">---</span></code></pre></div>
+<span class="s">—</span></code></pre></div></p>
 
 <p>This is called <em>yaml frontmatter</em> and you will use it on almost every page you write. This is a list of configurations for the page. In the default frontmatter provided for this post there are variables for</p>
 
@@ -393,97 +399,6 @@ Configuration file: /Users/adamwalz/my-blog/_config.yml
     </li>
   </ol>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Why I Use ZocDoc to Find and Schedule Great Doctors]]></title>
-    <link href="http://adamwalz.net/blog/2013/10/31/why-use-zocdoc/"/>
-    <updated>2013-10-31T16:11:56-07:00</updated>
-    <id>http://adamwalz.net/blog/2013/10/31/why-use-zocdoc</id>
-    <content type="html"><![CDATA[<p><span class="has-pullquote" data-pullquote="you wouldn’t want to hear anyone making that call ">
-I first heard about <a href="http://www.zocdoc.com/">ZocDoc</a> from their episode of <a href="http://www.theverge.com/2013/7/30/4570858/small-empires-001-zocdoc">Small Empires</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>. ZocDoc is a service which allows patients to unite with doctors in a way that allows patients to view ratings, read reviews, and schedule appointments all from the comfort of their laptop. Founder and CEO Cyrus Massoumi put it very practically, if not eloquently, when he said “If you had a rash on your butt, you [would] come to our site, <strong>A.</strong> because you wouldn’t want to hear anyone making that call, and <strong>B.</strong> it might be after 6 o’clock [and the] doctor’s office isn’t open.”
-</span></p>
-
-<p>For me though, I am going to be moving to California in the coming months, I’ll be on a new healthcare plan and will be needing to find a completely new set of doctors, dentists, optometrists, etc. Luckily, ZocDoc has a list of the “Wellness Recommendation” steps for new users.</p>
-
-<p><img src="/assets/images/posts/zocdoc/recommendations-350x414-b2a244.png" class="img-responsive center-block" alt="recommendations" /></p>
-
-<p>The first recommendation of course is “Sign Up for ZocDoc”, but the other four consist of a checklist of procedures such as an annual physical and dental cleaning. It was simple to click on each link and be taken to a list of dentists sorted both by distance from your house or work as well as ratings by other patients. The list is even filtered by your insurance provider and plan, so you can be assured you won’t be paying out-of-network when you get to the office.</p>
-
-<p>From there you can easily see which appointment slots the doctor has available, many of which are same-day appointments. I wanted to schedule mine well in advance, but I know the day will come when I NEED and appointment NOW, and I can see this as being a lifesaver<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> when I’m sick.</p>
-
-<p>When I made my appointments they automatically can be added to your Google or iCal calendars, as well as have reminder text messages sent out a few days beforehand, and if I ever need to reschedule its as easy as a click of a button.</p>
-
-<p>Before ZocDoc, my history of going to the doctor, or heaven forbid… the dentist, was less than stellar. Since scheduling is moved to software in ZocDoc, the system can remind me the next time I need to go in for an appointment. Its like the oil change sticker in your car which, Oh I never do either, but in this case instead of driving all the way to Jiffy Lube and then waiting with a styrofoam cup of stale coffee, the feedback loop between getting the reminder and having your appointment scheduled is just a simple button in your email.</p>
-
-<p><img src="/assets/images/posts/zocdoc/book_again-111x27-a127f3.png" class="img-responsive center-block" alt="Book Again" /></p>
-
-<p>I don’t think I will ever again see a doctor who doesn’t use ZocDoc, not only is it easier on me as patient to quickly make an appointment and find a new physician, but being able to use the simplest of technology is, in my mind, a basic prerequisite for the doctors I choose.</p>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p>Actually thats not true, I applied there as a developer a couple years ago, but never heard back :( Oh well, they seem to be doing well without me <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>Hopefully an exaggeration <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Most Excellent Adventure]]></title>
-    <link href="http://adamwalz.net/blog/2013/07/13/excellent-adventure/"/>
-    <updated>2013-07-13T00:00:00-07:00</updated>
-    <id>http://adamwalz.net/blog/2013/07/13/excellent-adventure</id>
-    <content type="html"><![CDATA[<h3 id="why-im-writing-this-blog">Why I’m writing this blog</h3>
-
-<p>Let me first say, welcome to my new blog!</p>
-
-<p>I’ve been thinking for a while about what I should write as my first post. I didn’t want to get right down into technical discussions to start out, and I didn’t want it to be some random one-off that will go down as the milestone first post.</p>
-
-<p>So I’ve decided an introduction is in order to explain why I am writing this blog, and what the reader and myself will hopefully get out of my writing of it.</p>
-
-<p>I recently graduated from the University of Utah with a degree in computer science, but as I get out into the world of professional programming I realize I still am a complete student. I rather like it that way. In this field if you are not constantly learning you will certainly be left behind. With the speed that technology is evolving you will be left behind much more quickly than in other fields. So with this view of myself as a perceptual student, I wanted to take the reader along as I document my journey toward professional and personal enlightenment.</p>
-
-<p>Secondly, I am self-admittedly a terrible writer. I passed my two writing courses at the University of Utah with flying colors, A’s in each, but I am convinced this was due solely to the competition in other papers my professors were reading. A <a href="http://www.edweek.org/ew/toc/2013/01/10/index.html?intc=EW-QC13-LFTNAV">new report</a>, Education Week’s annual <em>Quality Counts</em>, ranks Utah’s public schools 38th in the nation, up from 42nd the previous year. Anecdotally I’ve seen statistics like this easily mapped to the writing quality of my classmates. I skated by on this, but I am no better off for it. This blog is my second chance to become a <em>most excellent</em> writer. Bare with me.</p>
-
-<p>And last but not least, I want to help others learn from my experience (as I gain it).</p>
-
-<p><img src="/assets/images/posts/excellent_adventure/bill_and_ted-350x235-d3650a.jpg" class="img-responsive center-block" alt="Bill and Ted - Most Excellent" /></p>
-
-<h3 id="what-this-blog-is">What this blog is</h3>
-
-<h5 id="machine-learning">Machine learning</h5>
-<p>This is the story of an education in Machine learning from an inexperienced newb to slightly less of a newb. As I go along learning new algorithms, uses for the field of Machine Learning, and techniques in data collection, storage, and analysis, I will document that process with you here.</p>
-
-<h5 id="mac-how-tos">Mac How-To’s</h5>
-<p>I hack on a mac personally. One of the biggest reasons for that is the ease at which it gives you access to a unix-ess command line. I would probably use Linux as an alternative personal machine if it weren’t for Apple’s extraordinary sense of design, making it <em>the</em> beautiful, powerful development computer out there. On the server side however, there simply is no alternative to Linux and I am more than comfortable in that environment.</p>
-
-<p>Having said that, there are without a doubt times that I struggle with a task or I want to automate a task to go more smoothly next time. The enlightenment from finding a solution to these problems is easily forgotten if not put on paper. I use <a href="http://www.evernote.com">Evernote</a> for that as my second brain, but Evernote is not a social platform (and rightfully so), so the more interesting processes I have found for working with mac and linux will go in this blog too.</p>
-
-<h5 id="book-reviews">Book Reviews</h5>
-<p>This final piece will diverge off the technology path, but I like to read a very wide assortment of <a href="http://www.adamwalz.net/about/bookshelf">books</a>. When I mean wide I’m talking anywhere from technology, science fiction, and economics, to new-age, physiology, biographies, and classical literature. And these are just examples I pulled out of my current reading list. I won’t review them all, but the ones I really like will be placed into this blog as well.</p>
-
-<p>(“Review” may be the wrong term, since I’ll only be “reviewing” books I enjoy. This bias may lead to changing the term to “Book Recommendations”, we’ll see.)</p>
-
-<h3 id="why-swarm-intelligence">Why Swarm Intelligence?</h3>
-
-<p>Well first off it sounds pretty cool doesn’t it?</p>
-
-<blockquote>
-  <p>Two brains are better than one</p>
-</blockquote>
-
-<p>If there needs to be more than the coolness factor, I would say I have the romantic notion that two brains are better than one. I want to explore this notion from a computer science point of view.</p>
-
-<p>I’ll try out different techniques in data mining, machine learning, visualization, and distributed computing to see how much we can really can by putting our heads together.</p>
-
-<p>Thanks for joining me on this most excellent adventure.</p>
-
 ]]></content>
   </entry>
   
